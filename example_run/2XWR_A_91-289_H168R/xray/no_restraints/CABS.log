@@ -1,0 +1,27 @@
+##############################################################################################################
+[INFO]       Logger:   Verbosity set to: 3 - [OUT FILES]                                           (00:00:03)
+[WARNING]    JOB:      /data/user/krde/CABSflex_snakemake/cabs_production/cabsflex/example_run_1/2 
+                       XWR_A_91-289_H168R/xray/no_restraints already exists. Output data will be   
+                       overwritten.                                                                (00:00:03)
+[INFO]       Protein:  Loading input.pdb as input protein                                          (00:00:03)
+[WARNING]    PDB:      Unknown residue ZN at 300:A in input.pdb                                    (00:00:03)
+[OUT FILES]  Logger:   Saving DSSP output to /data/user/krde/CABSflex_snakemake/cabs_production/ca 
+                       bsflex/example_run_1/2XWR_A_91-289_H168R/xray/no_restraints/output_data/DSS 
+                       P_output_input.txt                                                          (00:00:04)
+[WARNING]    Protein:  Could not read weights file: gauss                                          (00:00:04)
+[WARNING]    Protein:  Using default weights(1.0) for all atoms.                                   (00:00:04)
+[INFO]       CABS:     Setting up CABS simulation.                                                 (00:00:04)
+[WARNING]    CABS:     Note: The following floating-point exceptions are signalling: IEEE_DENORMAL 
+                       Note: The following floating-point exceptions are signalling: IEEE_DENORMAL (00:13:40)
+[INFO]       JOB:      Trajectories loaded successfully                                            (00:13:40)
+[INFO]       JOB:      Input loaded as reference.                                                  (00:13:40)
+[OUT FILES]  JOB:      Saving pdb files to /data/user/krde/CABSflex_snakemake/cabs_production/cabs 
+                       flex/example_run_1/2XWR_A_91-289_H168R/xray/no_restraints/output_pdbs       (00:13:54)
+[WARNING]    JOB:      Possibly overwriting previous pdb files. Use --work-dir <DIR> to avoid      
+                       that.                                                                       (00:13:54)
+[OUT FILES]  JOB:      Saving replicas...                                                          (00:13:54)
+[OUT FILES]  JOB:      Saving clusters...                                                          (00:14:06)
+[OUT FILES]  JOB:      Saving starting structure...                                                (00:14:13)
+[OUT FILES]  JOB:      Saving final models (in AA representation)                                  (00:14:13)
+[INFO]       JOB:      RMSD successfully saved                                                     (00:30:26)
+[INFO]       JOB:      Simulation completed successfully                                           (00:30:29)

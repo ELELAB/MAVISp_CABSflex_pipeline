@@ -1,0 +1,411 @@
+# cabsflex - A pipeline to perform CABSflex jobs
+# Copyright (C) 2021-2023 Kristine Degn, Matteo Tiberti, Elena Papaleo
+# Computational Structural Biology Lab, Danish Cancer Society Research Center
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+import pandas as pd
+import numpy as np
+import os
+from Bio.PDB.Polypeptide import three_to_one, one_to_three
+import MDAnalysis as mda
+from MDAnalysis.analysis import align
+from biopandas.pdb import PandasPdb
+from Bio.PDB import PDBParser
+from Bio.PDB.DSSP import DSSP
+
+
+def get_ss(wildcards):
+
+    this_ss_def = config['cabsflex']['run_types'][wildcards.runtype]['ss-def']
+
+    if this_ss_def is None:
+        return ""
+    else:
+        return f":{this_ss_def}"
+
+def get_rebuild_models(wildcards):
+
+    this_rebuild = config['cabsflex']['run_types'][wildcards.runtype]['rebuild-models']
+
+    if this_rebuild == True:
+        return "-A"
+    else:
+        return ""
+
+def get_restraints(wildcards):
+
+    this_restr = config['cabsflex']['run_types'][wildcards.runtype]['restraints']
+
+    if this_restr is None:
+        return ""
+    else:
+        return " ".join(this_restr)
+
+def select_final_structures(wildcards):
+    if config['cabsflex']['run_types'][wildcards.runtype]['ligand']['place_ligand'] == True:
+        model_fname = "model_ligand"
+    else:
+        model_fname = "model"
+
+    return [ f"{config['out_dir']}/{wildcards.name}_{wildcards.chain}_{wildcards.start}-{wildcards.end}_{wildcards.wt}{wildcards.resnum}{wildcards.alt}/{wildcards.source}/{wildcards.runtype}/output_pdbs/{model_fname}_{n}.pdb" for n in range(config['cabsflex']['k-medoids']) ]
+
+def select_final_structures_wt(wildcards):
+    if config['cabsflex']['run_types'][wildcards.runtype]['ligand']['place_ligand'] == True:
+        model_fname = "model_ligand"
+    else:
+        model_fname = "model"
+
+    return [ f"{config['out_dir']}/{wildcards.name}_{wildcards.chain}_{wildcards.start}-{wildcards.end}_WT/{wildcards.source}/{wildcards.runtype}/output_pdbs/{model_fname}_{n}.pdb" for n in range(config['cabsflex']['k-medoids']) ]
+
+configfile: 'config.yaml'
+
+variants = pd.read_csv(config['variant_csv'])
+
+targets = []
+for v in variants['source_structure'].index:
+
+    wcs = glob_wildcards(f"{config['pdb_input_dir']}/{variants.loc[v, 'pdb_dir']}/" + "{name}_{chain}_{wt,[A-Z]{3}}{resnum,[0-9]+}{alt,[A-Z]{3}}.pdb")
+    wcs_wt = glob_wildcards(f"{config['pdb_input_dir']}/{variants.loc[v, 'pdb_dir']}/" + "{name}_{chain}_WT.pdb")
+
+    wt_sl = [ three_to_one(r) for r in wcs.wt ]
+    alt_sl = [ three_to_one(r) for r in wcs.alt ]
+
+    #for mutations
+    targets.extend(
+        expand(
+            expand(
+                f"{config['out_dir']}/" +
+                 "{name}_{chain}_" + 
+                f"{variants.loc[v, 'aa_num_start']}-{variants.loc[v, 'aa_num_end']}_" +
+                 "{wt}{resnum}{alt}/" +
+                f"{variants.loc[v, 'source_type']}/" +
+                 "{runtype}/model_quality/model_SS_summary.csv",
+                 zip,
+                 name=wcs.name,
+                 chain=wcs.chain,
+                 wt=wt_sl,
+                 resnum=wcs.resnum,
+                 alt=alt_sl,
+                 allow_missing=True),
+            runtype=list(config['cabsflex']['run_types'].keys())))
+    
+    targets.extend(
+        expand(
+            expand(
+                f"{config['out_dir']}/" +
+                 "{name}_{chain}_" + 
+                f"{variants.loc[v, 'aa_num_start']}-{variants.loc[v, 'aa_num_end']}_" +
+                 "{wt}{resnum}{alt}/" +
+                f"{variants.loc[v, 'source_type']}/" +
+                 "{runtype}/theseus/theseus_sup.pdb",
+                 zip,
+                 name=wcs.name,
+                 chain=wcs.chain,
+                 wt=wt_sl,
+                 resnum=wcs.resnum,
+                 alt=alt_sl,
+                 allow_missing=True),
+            runtype=list(config['cabsflex']['run_types'].keys())))
+    
+    #for WT
+    targets.extend(
+        expand(
+            expand(
+                f"{config['out_dir']}/" +
+                 "{name}_{chain}_" +
+                f"{variants.loc[v, 'aa_num_start']}-{variants.loc[v, 'aa_num_end']}_WT/" +
+                f"{variants.loc[v, 'source_type']}/" +
+                 "{runtype}/model_quality/model_SS_summary.csv",
+                 zip,
+                 name=wcs_wt.name,
+                 chain=wcs_wt.chain,
+                 wt=wt_sl,
+                 resnum=wcs.resnum,
+                 alt=alt_sl,
+                 allow_missing=True),
+            runtype=list(config['cabsflex']['run_types'].keys())))
+
+    targets.extend(
+        expand(
+            expand(
+                f"{config['out_dir']}/" +
+                 "{name}_{chain}_" +
+                f"{variants.loc[v, 'aa_num_start']}-{variants.loc[v, 'aa_num_end']}_WT/" +
+                f"{variants.loc[v, 'source_type']}/" +
+                 "{runtype}/theseus/theseus_sup.pdb",
+                 zip,
+                 name=wcs_wt.name,
+                 chain=wcs_wt.chain,
+                 wt=wt_sl,
+                 resnum=wcs.resnum,
+                 alt=alt_sl,
+                 allow_missing=True),
+            runtype=list(config['cabsflex']['run_types'].keys())))
+
+variants = variants.set_index(['source_structure', 'chain_in_source', 'aa_num_start', 'aa_num_end', 'source_type'])
+
+rule all:
+    input:
+        targets
+
+rule run_cabsflex:
+    input:
+        lambda wcs: f"{config['pdb_input_dir']}/{variants.loc[(wcs.name, wcs.chain, int(wcs.start), int(wcs.end), wcs.source), 'pdb_dir']}/{wcs.name}_{wcs.chain}_{one_to_three(wcs.wt)}{wcs.resnum}{one_to_three(wcs.alt)}.pdb"
+    output:
+        models = expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/output_pdbs/model_{n}.pdb", n=range(config['cabsflex']['k-medoids']), allow_missing=True),
+        pdb = f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/input.pdb"
+        
+    wildcard_constraints:
+        wt="[A-Z]",
+        resnum="[0-9]+",
+        alt="[A-Z]"
+    params:
+        restraints=get_restraints,
+        mc_cycles = lambda wcs: config['cabsflex']['run_types'][wcs.runtype]['mc-cycles'],
+        mc_steps = lambda wcs: config['cabsflex']['run_types'][wcs.runtype]['mc-steps'],
+        mc_annealing = lambda wcs: config['cabsflex']['run_types'][wcs.runtype]['mc-annealing'],
+        rebuild_models = get_rebuild_models,
+        random_seed = lambda wcs: config['cabsflex']['run_types'][wcs.runtype]['random-seed']
+        
+    shell:
+        """
+        working_dir=$(dirname $(dirname {output.models[0]}))
+        
+        cp {input} $working_dir/
+        
+        cd $working_dir
+        
+        cat <<EOF > README.txt
+        
+        This directory contains a CABSflex run to model the flexibility of a structure.
+
+        Structure: {input}
+        Run type: {wildcards.runtype}
+
+        This has been performed by running run.sh script, command: bash run.sh 
+        
+        And a log called CABS.log containing the output of the CABSflex run has also been written.
+EOF
+                
+        cat <<EOF > run.sh
+        
+        ln -s $(basename {input}) input.pdb
+        set +u; {config[cabsflex][env]}; set -u
+
+        CABSflex\\
+            -i input.pdb\\
+            -k {config[cabsflex][k-medoids]}\\
+            -v {config[cabsflex][verbose]}\\
+            -s {params.mc_steps}\\
+            -y {params.mc_cycles}\\
+            -a {params.mc_annealing}\\
+            {params.rebuild_models}\\
+            -z {params.random_seed}\\
+            -C\\
+            --dssp-command {config[cabsflex][dssp_location]}\\
+            {params.restraints}\\
+            --log
+EOF
+
+        bash run.sh  
+        """
+
+use rule run_cabsflex as run_cabsflex_wt with:
+    input:
+        lambda wcs: f"{config['pdb_input_dir']}/{variants.loc[(wcs.name, wcs.chain, int(wcs.start), int(wcs.end), wcs.source), 'pdb_dir']}/{wcs.name}_{wcs.chain}_WT.pdb"
+    output:
+        models = expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/output_pdbs/model_{n}.pdb", n=range(config['cabsflex']['k-medoids']), allow_missing=True),
+        pdb = f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/input.pdb"
+
+
+rule make_ensemble:
+    input:
+        select_final_structures
+
+    output:
+         f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/theseus/theseus_sup.pdb"
+
+    wildcard_constraints:
+        wt="[A-Z]",
+        resnum="[0-9]+",
+        alt="[A-Z]"
+
+    shell:
+         """
+         cd $(dirname {output})
+
+         {config[theseus_location]} $(for i in {input}; do echo ../output_pdbs/$(basename $i); done)
+         """
+
+rule make_ensemble_wt:
+    input:
+        select_final_structures_wt
+    output:
+         f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/theseus/theseus_sup.pdb"
+
+    shell:
+         """
+         cd $(dirname {output})
+
+         {config[theseus_location]} $(for i in {input}; do echo ../output_pdbs/$(basename $i); done)
+         """
+
+rule add_ligand:
+    input:
+        expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/output_pdbs/model_{n}.pdb", n=range(config['cabsflex']['k-medoids']), allow_missing=True)
+    output:
+        expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/output_pdbs/model_ligand_{n}.pdb", n=range(config['cabsflex']['k-medoids']), allow_missing=True)
+    params:
+        ligand_structure = lambda wcs: config['cabsflex']['run_types'][wcs.runtype]['ligand']['ligand_structure'],
+        model_fit_selection = lambda wcs: config['cabsflex']['run_types'][wcs.runtype]['ligand']['model_fit_selection'],
+        ligand_fit_selection = lambda wcs: config['cabsflex']['run_types'][wcs.runtype]['ligand']['ligand_fit_selection'],
+        ligand_selection = lambda wcs: config['cabsflex']['run_types'][wcs.runtype]['ligand']['ligand_selection']
+
+    run:
+        # load reference structure as universe
+        ref_u = mda.Universe(params.ligand_structure)
+
+        for f, o in zip(input, output):
+
+            # load model as universe
+            u = mda.Universe(f)
+
+            # least square fit the reference structure universe to the model universe
+            # using CA of both proteins only. Note that I have removed the alternate
+            # conformations from the original 2XWR to make this work.
+            align.alignto(u,
+                          ref_u,
+                          select={'mobile'   : params.model_fit_selection,
+                                  'reference': params.ligand_fit_selection},
+                          strict=True)
+
+            # select atoms of ligand
+            ligand = ref_u.select_atoms(params.ligand_selection)
+
+            # create a new universe containing the model universe and the selected
+            # ligand
+            u_ligand = mda.Merge(u.atoms, ligand.atoms)
+
+            # write this to PDB
+            u_ligand.atoms.write(o)
+
+use rule add_ligand as rule_add_ligand_wt with:
+    input:
+        expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/output_pdbs/model_{n}.pdb", n=range(config['cabsflex']['k-medoids']), allow_missing=True)
+    output:
+        expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/output_pdbs/model_ligand_{n}.pdb", n=range(config['cabsflex']['k-medoids']), allow_missing=True)
+        
+rule secondary_structure_reference:
+    input:
+        f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/input.pdb"
+    output:
+        f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/model_quality/reference_structure.ss"
+    run:
+        p = PDBParser()
+        structure = p.get_structure("ref", str(input))
+        model = structure[0]
+        dssp = DSSP(model, str(input), dssp=config['cabsflex']['dssp_location'])
+        keys = list(dssp.keys())
+        with open(str(output), "w") as fp:
+            for key in keys:
+                if key[0] == wildcards.chain:
+                    ss = dssp[key][2]
+                    if ss in ["+", "-", "<", ">", ">>", "0"]:
+                        fp.write("C")
+                    else:
+                        fp.write(ss)
+
+use rule secondary_structure_reference as secondary_structure_reference_wt with:
+    input:
+        f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/input.pdb"
+    output:
+        f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/model_quality/reference_structure.ss"
+        
+rule secondary_structure_models:
+    input:
+        expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/output_pdbs/model_{n}.pdb", n=range(config['cabsflex']['k-medoids']), allow_missing=True)
+    output:
+        expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/model_quality/model_{n}.ss", n=range(config['cabsflex']['k-medoids']), allow_missing=True)
+    run:
+        p = PDBParser()
+        
+        for f, o in zip(input, output):
+            structure = p.get_structure("ref", str(f))
+            model = structure[0]
+            dssp = DSSP(model, str(f), dssp=config['cabsflex']['dssp_location'])
+            keys = list(dssp.keys())
+            with open(str(o), "w") as fp:
+                for key in keys:
+                    if key[0] == wildcards.chain:
+                        ss = dssp[key][2]
+                        if ss in ["+", "-", "<", ">", ">>", "0"]:
+                            fp.write("C")
+                        else:
+                            fp.write(ss)
+
+use rule secondary_structure_models as secondary_structure_models_wt with:
+    input:
+        expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/output_pdbs/model_{n}.pdb", n=range(config['cabsflex']['k-medoids']), allow_missing=True)
+    output:
+        expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/model_quality/model_{n}.ss", n=range(config['cabsflex']['k-medoids']), allow_missing=True)
+
+rule SOV_score:
+    input:
+        ref = f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/model_quality/reference_structure.ss",
+        models = f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/model_quality/model_{n}.ss"
+    output:
+        f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/model_quality/model_{n}.sov"
+    shell:
+        """
+        {config[cabsflex][sov_location]} {input.ref} {input.models} > {output}
+        """
+
+use rule SOV_score as SOV_score_wt with:
+    input:
+        ref = f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/model_quality/reference_structure.ss",
+        models = f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/model_quality/model_{n}.ss"
+    output:
+        f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/model_quality/model_{n}.sov"
+
+rule summarize_SS:
+    input: 
+        expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/model_quality/model_{n}.sov", n=range(config['cabsflex']['k-medoids']), allow_missing=True)
+    output: 
+        f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/model_quality/model_SS_summary.csv" 
+    run: 
+        df = pd.DataFrame(columns=["Model", "Accuracy", "SOV_99", "SOV_refine"])
+
+        for file in input:
+            file = str(file)
+            model_name = file.split("/")[-1].split(".")[0]
+        
+            with open(file, "r") as f:
+                lines = f.readlines()
+                lines = [line.rstrip() for line in lines]
+                lines = lines[-3:]
+                accuracy = lines[0].split("\t")[-1]
+                sov_99 = lines[1].split("\t")[-1]
+                sov_refine = lines[2].split("\t")[-1]
+        
+            df = df.append({"Model": model_name, "Accuracy": accuracy, "SOV_99": sov_99, "SOV_refine": sov_refine}, ignore_index=True)        
+        df.to_csv(str(output), index=False)
+
+use rule summarize_SS as summarize_SS_wt with:
+        input:
+            expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/model_quality/model_{n}.sov", n=range(config['cabsflex']['k-medoids']), allow_missing=True)
+        output:
+            f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/model_quality/model_SS_summary.csv"
+

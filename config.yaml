@@ -1,0 +1,87 @@
+#name of variants file in directory.
+variant_csv: "variant.csv"
+
+#PDB input and Output directories
+pdb_input_dir: "."
+
+out_dir: "." 
+
+theseus_location: "/usr/local/theseus-3.3.0/theseus"
+
+cabsflex:
+   env: "source /etc/profile.d/modules.sh && module load cabs"
+   k-medoids: 20
+   verbose: 3
+   dssp_location: "/usr/local/dssp-3.0.10/bin/mkdssp"
+   sov_location: "./SOV_refine.pl"
+   run_types:
+           no_restraints:
+             mc-cycles: 50
+             mc-steps: 50
+             mc-annealing: 20
+             random-seed: 10 
+             modelling_restraint: "ss2 3 3.8 8.0"
+             ss_def: null
+             restraints: null
+             rebuild-models: true
+             ligand:
+                place_ligand: false
+           ss_restraints:
+             mc-cycles: 50
+             mc-steps: 50
+             mc-annealing: 20
+             random-seed: 10 
+             modelling_restraint: "all 3 3.8 8.0"
+             ss_def: null
+             restraints: null
+             rebuild-models: true
+             ligand:
+                place_ligand: false           
+           ca_rest_zinc_bs:
+            mc-cycles: 50
+            mc-steps: 50
+            mc-annealing: 20
+            random-seed: 10 
+            modelling_restraint: "ss2 3 3.8 8.0"
+            ss_def: null
+            rebuild-models: true
+            restraints: 
+               - '--ca-rest-add 179:A 176:A 5.5 1.0'
+               - '--ca-rest-add 179:A 238:A 6.6 1.0'
+               - '--ca-rest-add 179:A 242:A 8.1 1.0'
+               - '--ca-rest-add 176:A 238:A 7.1 1.0'
+               - '--ca-rest-add 176:A 242:A 6.5 1.0'
+               - '--ca-rest-add 238:A 242:A 6.7 1.0'
+            ligand:
+                place_ligand: true
+                ligand_structure: '2XWR.pdb'
+                model_fit_selection: "protein and name CA and segid A"
+                ligand_fit_selection: "protein and name CA and segid A"
+                ligand_selection: "segid A and resname ZN"
+           ca_sc_rest_zinc_bs:
+            mc-cycles: 50
+            mc-steps: 50
+            mc-annealing: 20
+            random-seed: 10
+            modelling_restraint: "ss2 3 3.8 8.0"
+            ss_def: null
+            rebuild-models: true
+            restraints:
+               - '--ca-rest-add 179:A 176:A 5.5 1.0'
+               - '--ca-rest-add 179:A 238:A 6.6 1.0'
+               - '--ca-rest-add 179:A 242:A 8.1 1.0'
+               - '--ca-rest-add 176:A 238:A 7.1 1.0'
+               - '--ca-rest-add 176:A 242:A 6.5 1.0'
+               - '--ca-rest-add 238:A 242:A 6.7 1.0'
+               - '--sc-rest-add 179:A 238:A 4.8 1.0'
+               - '--sc-rest-add 179:A 242:A 6.0 1.0'
+               - '--sc-rest-add 179:A 176:A 5.4 1.0'
+               - '--sc-rest-add 176:A 242:A 4.0 1.0'
+               - '--sc-rest-add 176:A 238:A 6.7 1.0'
+               - '--sc-rest-add 238:A 242:A 5.1 1.0' 
+            ligand:
+                place_ligand: true
+                ligand_structure: '2XWR.pdb'
+                model_fit_selection: "protein and name CA and segid A"
+                ligand_fit_selection: "protein and name CA and segid A"
+                ligand_selection: "segid A and resname ZN"

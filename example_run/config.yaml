@@ -1,0 +1,28 @@
+#name of variants file in directory.
+variant_csv: "variant.csv"
+
+#PDB input and Output directories
+pdb_input_dir: "."
+
+out_dir: "." 
+
+theseus_location: "/usr/local/theseus-3.3.0/theseus"
+
+cabsflex:
+   env: "source /usr/local/envs/cabsflex/bin/activate"
+   module: "module load cabs"
+   k-medoids: 20
+   verbose: 3
+   dssp_location: "/usr/local/dssp-3.0.10/bin/mkdssp"
+   sov_location: "../SOV_refine.pl"
+   run_types:
+           no_restraints:
+             mc-cycles: 50
+             mc-steps: 50
+             mc-annealing: 20
+             random-seed: 10 
+             ss_def: null
+             restraints: null
+             rebuild-models: true
+             ligand:
+                place_ligand: false
