@@ -128,7 +128,7 @@ The `runtypes` section allows to define different runtypes, i.e. set of paramete
 them will be considered and run in combination with the PDB sets defined in the input csv file. Options
 for each runtype are:
 
-|runtype options|Meaning|
+|Runtype options|Meaning|
 |---|---|
 |`mc-cycles`| This option,(-y, --mc-cycles NUM) sets the number of Monte Carlo cycles to NUM (NUM>0, default value = 50).|
 |`mc-steps`| This option, (-s, --mc-steps NUM) sets number of Monte Carlo cycles between trajectory frames to NUM (NUM > 0, default value = 50). |
@@ -137,7 +137,8 @@ for each runtype are:
 |`random_seed`| Setting a random seed for the run. As a default all random seeds are set to 10, which ensures reproducibility of runs. |
 |`modelling_restraint`| This option allow the user to restrain how flexible residues in secondary structures should be, the default value is "ss2 3 3.8 8.0". The options are ss2; where residues in contact are restrained if they are both in structured SS. ss1; where a residue in a secondary structure is restrained to stay in that secondary structure. all; where all residues are restrained to remain in their original secondary structure assignment. The numerical values describe the gap between restrained pairs (3), the minimum distance of restraining (3.8 Å) the maximim distance of restraint (8.0 Å)|
 
-|File Availability|Meaning|
+|Requirement location|Meaning|
+|---|---|
 |`theseus_location`| The placement and name of the theseus program: e.g. "/usr/local/theseus-3.3.0/theseus"
 |`dssp_location`| The placement and name of the dssp program: e.g. "/usr/local/dssp-3.0.10/bin/mkdssp"|
 |`sov_location`| The placement and name of the SOV script, e.g. "./SOV_refine.pl"|
@@ -149,6 +150,7 @@ must be specified in the config.yaml configuration file.
 
 Run types can be specified a specific structure, for instance:
 
+```
   run_types:
     default:
       ss_def: null
@@ -174,6 +176,7 @@ Run types can be specified a specific structure, for instance:
         model_fit_selection: "protein and name CA and segid A"
         ligand_fit_selection: "protein and name CA and segid A"
         ligand_selection: "segid A and resname ZN"
+```
 
 For each run type (in this example, “default and “metal_bound"), both a secondary structure definition and restraints can be defined.
 
@@ -199,6 +202,7 @@ The folders containing the output will be built and named with the information p
 
 Example:
 
+```
 [source_structure]_[chain_in_source]_[aa_num_start]-[aa_num_end]_[WT_amino_acid][AA_num][Mutated_amino_acid]
 └── model
     └── metal_bound
@@ -241,12 +245,13 @@ Example:
             ├── theseus_sup.pdb
             ├── theseus_transf.txt
             └── theseus_variances.txt
+```
 
 Notice that there is only "model" in this example, however, experimental inputs are also applicable defined by the method, e.g., xray.
 
 ### Example
 
-See the directory example_run to see an example of input files, one type of configuration and the resulting output. This directory also 
+See the `example_run` directory to see an example of input files, one type of configuration and the resulting output. This directory also 
 contains a small readme to explain the example run. 
 
 ### References
