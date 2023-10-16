@@ -1,0 +1,1675 @@
+environ____W> The class 'environ' is deprecated; use 'Environ' instead
+automodel__W> The class 'automodel' is deprecated; use 'AutoModel' instead
+
+Pairwise dynamic programming alignment (ALIGN):
+  Residue-residue metric   : $(LIB)/as1.sim.mat
+  Diagonal                 :          100
+  Overhang                 :            0
+  Local alignment          :            F
+  MATRIX_OFFSET (local aln):       0.0000
+  N_SUBOPT                 :            0
+  SUBOPT_OFFSET            :       0.0000
+  Alignment block          :            1
+  Gap introduction penalty :    -600.0000
+  Gap extension penalty    :    -400.0000
+  Break-break bonus        :   10000.0000
+  Length of alignment      :          199
+  Score                    :  177405.0000
+
+Sequence identity comparison (ID_TABLE):
+
+   Diagonal       ... number of residues;
+   Upper triangle ... number of identical residues;
+   Lower triangle ... % sequence identity, id/min(length).
+
+         model_@1.0WUB_@1
+model_@1      199     199
+.0WUB_@1      100     199
+
+check_ali___> Checking the sequence-structure alignment. 
+
+Implied intrachain target CA(i)-CA(i+1) distances longer than  8.0 angstroms:
+
+ALN_POS  TMPL  RID1  RID2  NAM1  NAM2     DIST
+----------------------------------------------
+END OF TABLE
+read_to_681_> topology.submodel read from topology file:        3
+buildc__466W> Some coordinates in MODEL not assigned.
+buildc__468W> Some coordinates in MODEL are still undefined.
+maincha_525W>      398 mainchain (N or C) atoms were approximately placed
+              based on CA atom coordinates.
+mdtrsr__446W> A potential that relies on one protein is used, yet you have at
+              least one known structure available. MDT, not library, potential is used.
+0 atoms in HETATM/BLK residues constrained
+to protein atoms within 2.30 angstroms
+and protein CA atoms within 10.00 angstroms
+0 atoms in residues without defined topology
+constrained to be rigid bodies
+condens_443_> Restraints marked for deletion were removed.
+              Total number of restraints before, now:    11685    10228
+iupac_m_397W> Atoms were not swapped because of the uncertainty of how to handle the H atom.
+iupac_m_397W> Atoms were not swapped because of the uncertainty of how to handle the H atom.
+iupac_m_397W> Atoms were not swapped because of the uncertainty of how to handle the H atom.
+iupac_m_397W> Atoms were not swapped because of the uncertainty of how to handle the H atom.
+>> Model assessment by DOPE potential
+iatmcls_286W> MODEL atom not classified:  LEU:OXT  LEU
+
+
+>> ENERGY; Differences between the model's features and restraints:
+Number of all residues in MODEL                   :      199
+Number of all, selected real atoms                :     1565    1565
+Number of all, selected pseudo atoms              :        0       0
+Number of all static, selected restraints         :    10228   10228
+COVALENT_CYS                                      :        F
+NONBONDED_SEL_ATOMS                               :        1
+Number of non-bonded pairs (excluding 1-2,1-3,1-4):   294812
+Dynamic pairs routine                             : 1, NATM x NATM double loop
+Atomic shift for contacts update (UPDATE_DYNAMIC) :    0.390
+LENNARD_JONES_SWITCH                              :    6.500   7.500
+COULOMB_JONES_SWITCH                              :    6.500   7.500
+RESIDUE_SPAN_RANGE                                :        1    9999
+NLOGN_USE                                         :       15
+CONTACT_SHELL                                     :   15.000
+DYNAMIC_PAIRS,_SPHERE,_COULOMB,_LENNARD,_MODELLER :        T       F       F       F       T
+SPHERE_STDV                                       :    0.050
+RADII_FACTOR                                      :    0.820
+Current energy                                    :      -16916.1836
+
+
+
+
+<< end of ENERGY.
+DOPE score               : -16916.183594
+
+
+>> ENERGY; Differences between the model's features and restraints:
+Number of all residues in MODEL                   :      199
+Number of all, selected real atoms                :     1565    1565
+Number of all, selected pseudo atoms              :        0       0
+Number of all static, selected restraints         :    10228   10228
+COVALENT_CYS                                      :        F
+NONBONDED_SEL_ATOMS                               :        1
+Number of non-bonded pairs (excluding 1-2,1-3,1-4):     3338
+Dynamic pairs routine                             : 2, NATM x NATM cell sorting
+Atomic shift for contacts update (UPDATE_DYNAMIC) :    0.390
+LENNARD_JONES_SWITCH                              :    6.500   7.500
+COULOMB_JONES_SWITCH                              :    6.500   7.500
+RESIDUE_SPAN_RANGE                                :        0   99999
+NLOGN_USE                                         :       15
+CONTACT_SHELL                                     :    4.000
+DYNAMIC_PAIRS,_SPHERE,_COULOMB,_LENNARD,_MODELLER :        T       T       F       F       F
+SPHERE_STDV                                       :    0.050
+RADII_FACTOR                                      :    0.820
+Current energy                                    :        1480.5406
+
+
+
+
+
+Summary of the restraint violations: 
+
+   NUM     ... number of restraints.
+   NUMVI   ... number of restraints with RVIOL > VIOL_REPORT_CUT[i].
+   RVIOL   ... relative difference from the best value.
+   NUMVP   ... number of restraints with -Ln(pdf) > VIOL_REPORT_CUT2[i].
+   RMS_1   ... RMS(feature, minimally_violated_basis_restraint, NUMB).
+   RMS_2   ... RMS(feature, best_value, NUMB).
+   MOL.PDF ... scaled contribution to -Ln(Molecular pdf).
+
+ #                     RESTRAINT_GROUP      NUM   NUMVI  NUMVP   RMS_1   RMS_2         MOL.PDF     S_i
+------------------------------------------------------------------------------------------------------
+ 1 Bond length potential              :    1603       0      0   0.006   0.006      14.664       1.000
+ 2 Bond angle potential               :    2177       0      6   2.244   2.244      214.33       1.000
+ 3 Stereochemical cosine torsion poten:    1051       0     61  51.883  51.883      445.60       1.000
+ 4 Stereochemical improper torsion pot:     653       0      0   1.185   1.185      18.238       1.000
+ 5 Soft-sphere overlap restraints     :    3338       0      0   0.003   0.003      4.7615       1.000
+ 6 Lennard-Jones 6-12 potential       :       0       0      0   0.000   0.000      0.0000       1.000
+ 7 Coulomb point-point electrostatic p:       0       0      0   0.000   0.000      0.0000       1.000
+ 8 H-bonding potential                :       0       0      0   0.000   0.000      0.0000       1.000
+ 9 Distance restraints 1 (CA-CA)      :    3966       0      0   0.249   0.249      269.66       1.000
+10 Distance restraints 2 (N-O)        :       0       0      0   0.000   0.000      0.0000       1.000
+11 Mainchain Phi dihedral restraints  :       0       0      0   0.000   0.000      0.0000       1.000
+12 Mainchain Psi dihedral restraints  :       0       0      0   0.000   0.000      0.0000       1.000
+13 Mainchain Omega dihedral restraints:     198       0      3   5.150   5.150      53.950       1.000
+14 Sidechain Chi_1 dihedral restraints:     179       0      0  84.797  84.797      49.484       1.000
+15 Sidechain Chi_2 dihedral restraints:     121       0      0  75.345  75.345      42.542       1.000
+16 Sidechain Chi_3 dihedral restraints:      61       0      0  77.773  77.773      39.136       1.000
+17 Sidechain Chi_4 dihedral restraints:      22       0      0  97.816  97.816      14.698       1.000
+18 Disulfide distance restraints      :       0       0      0   0.000   0.000      0.0000       1.000
+19 Disulfide angle restraints         :       0       0      0   0.000   0.000      0.0000       1.000
+20 Disulfide dihedral angle restraints:       0       0      0   0.000   0.000      0.0000       1.000
+21 Lower bound distance restraints    :       0       0      0   0.000   0.000      0.0000       1.000
+22 Upper bound distance restraints    :       0       0      0   0.000   0.000      0.0000       1.000
+23 Distance restraints 3 (SDCH-MNCH)  :       0       0      0   0.000   0.000      0.0000       1.000
+24 Sidechain Chi_5 dihedral restraints:       0       0      0   0.000   0.000      0.0000       1.000
+25 Phi/Psi pair of dihedral restraints:     197      80     41  41.919 118.414      313.48       1.000
+26 Distance restraints 4 (SDCH-SDCH)  :       0       0      0   0.000   0.000      0.0000       1.000
+27 Distance restraints 5 (X-Y)        :       0       0      0   0.000   0.000      0.0000       1.000
+28 NMR distance restraints 6 (X-Y)    :       0       0      0   0.000   0.000      0.0000       1.000
+29 NMR distance restraints 7 (X-Y)    :       0       0      0   0.000   0.000      0.0000       1.000
+30 Minimal distance restraints        :       0       0      0   0.000   0.000      0.0000       1.000
+31 Non-bonded restraints              :       0       0      0   0.000   0.000      0.0000       1.000
+32 Atomic accessibility restraints    :       0       0      0   0.000   0.000      0.0000       1.000
+33 Atomic density restraints          :       0       0      0   0.000   0.000      0.0000       1.000
+34 Absolute position restraints       :       0       0      0   0.000   0.000      0.0000       1.000
+35 Dihedral angle difference restraint:       0       0      0   0.000   0.000      0.0000       1.000
+36 GBSA implicit solvent potential    :       0       0      0   0.000   0.000      0.0000       1.000
+37 EM density fitting potential       :       0       0      0   0.000   0.000      0.0000       1.000
+38 SAXS restraints                    :       0       0      0   0.000   0.000      0.0000       1.000
+39 Symmetry restraints                :       0       0      0   0.000   0.000      0.0000       1.000
+
+
+
+# Heavy relative violation of each residue is written to: .0WUB_2.V99990001
+# The profile is NOT normalized by the number of restraints.
+# The profiles are smoothed over a window of residues:    1
+# The sum of all numbers in the file:   29663.1270
+
+
+
+List of the violated restraints:
+   A restraint is violated when the relative difference
+   from the best value (RVIOL) is larger than CUTOFF.
+
+   ICSR   ... index of a restraint in the current set.
+   RESNO  ... residue numbers of the first two atoms.
+   ATM    ... IUPAC atom names of the first two atoms.
+   FEAT   ... the value of the feature in the model.
+   restr  ... the mean of the basis restraint with the smallest
+              difference from the model (local minimum).
+   viol   ... difference from the local minimum.
+   rviol  ... relative difference from the local minimum.
+   RESTR  ... the best value (global minimum).
+   VIOL   ... difference from the best value.
+   RVIOL  ... relative difference from the best value.
+
+
+-------------------------------------------------------------------------------------------------
+
+Feature 25                           : Phi/Psi pair of dihedral restraints     
+List of the RVIOL violations larger than   :       6.5000
+
+    #   ICSR  RESNO1/2 ATM1/2   INDATM1/2    FEAT   restr    viol   rviol   RESTR    VIOL   RVIOL
+    1   5488   4S   5S C   N      34   36  -95.51  -72.40   26.95    2.17  -64.10  176.36   11.29
+    1          5S   5S N   CA     36   37  138.54  152.40                  -35.00
+    2   5489   5S   6S C   N      40   42 -165.41 -136.60   96.03    4.18  -64.10  130.46   16.60
+    2          6S   6S N   CA     42   43 -117.20  151.20                  -35.00
+    3   5491   7V   8P C   N      53   55  -65.30  -58.70   29.95    3.02  -64.50  153.10   11.38
+    3          8P   8P N   CA     55   56  -59.71  -30.50                  147.20
+    4   5492   8P   9S C   N      60   62  103.97 -136.60  122.49    4.20  -64.10 -136.97   19.13
+    4          9S   9S N   CA     62   63  178.40  151.20                  -35.00
+    5   5493   9S  10Q C   N      66   68 -109.43 -121.10   24.39    0.92  -63.80  165.01   22.14
+    5         10Q  10Q N   CA     68   69  118.27  139.70                  -40.30
+    6   5494  10Q  11K C   N      75   77 -148.21 -118.00   31.74    1.38  -62.90 -169.62   21.87
+    6         11K  11K N   CA     77   78  129.39  139.10                  -40.80
+    7   5497  13Y  14Q C   N     103  105  -95.92  -73.00   24.07    1.83  -63.80  176.59   24.39
+    7         14Q  14Q N   CA    105  106  133.34  140.70                  -40.30
+    8   5499  15G  16S C   N     116  118  -64.45  -72.40    8.35    0.65  -64.10  170.04   12.34
+    8         16S  16S N   CA    118  119  154.95  152.40                  -35.00
+    9   5500  16S  17Y C   N     122  124   58.12   55.90   20.31    1.59 -124.30 -166.95   15.98
+    9         17Y  17Y N   CA    124  125   59.69   39.50                  135.40
+   10   5509  25H  26S C   N     201  203  -89.17  -72.40   19.65    1.05  -64.10  164.28   13.55
+   10         26S  26S N   CA    203  204  162.64  152.40                  -35.00
+   11   5510  26S  27G C   N     207  209 -167.92 -167.20   52.18    2.05  -80.20  101.81    7.51
+   11         27G  27G N   CA    209  210  122.42  174.60                  174.10
+   12   5514  30K  31S C   N     232  234 -162.60 -136.60   31.02    0.95  -64.10 -174.74   20.53
+   12         31S  31S N   CA    234  235  168.10  151.20                  -35.00
+   13   5516  32V  33T C   N     245  247  -76.89  -63.20   16.77    2.89 -124.80  171.54    8.75
+   13         33T  33T N   CA    247  248  -51.79  -42.10                  143.50
+   14   5519  35T  36Y C   N     265  267  -68.53  -63.50    6.38    0.91 -124.30 -176.45    7.68
+   14         36Y  36Y N   CA    267  268  -39.47  -43.40                  135.40
+   15   5520  36Y  37S C   N     277  279   54.06   56.90   42.32    2.46  -64.10  163.93   20.31
+   15         37S  37S N   CA    279  280   78.63   36.40                  -35.00
+   16   5521  37S  38P C   N     283  285  -71.40  -58.70   12.86    1.74  -64.50  179.86   13.79
+   16         38P  38P N   CA    285  286  -32.53  -30.50                  147.20
+   17   5524  40L  41N C   N     303  305  -60.96  -71.20   23.47    1.27  -63.20  162.80   20.48
+   17         41N  41N N   CA    305  306  121.69  142.80                  -41.10
+   18   5525  41N  42K C   N     311  313 -160.13 -118.00   43.64    1.86  -62.90 -165.43   22.38
+   18         42K  42K N   CA    313  314  127.73  139.10                  -40.80
+   19   5526  42K  43M C   N     320  322 -105.19 -125.60   22.22    0.69  -63.40  177.22   23.54
+   19         43M  43M N   CA    322  323  131.71  140.50                  -40.50
+   20   5529  45C  46Q C   N     345  347 -143.48 -121.10   37.32    1.30  -63.80  169.96   29.11
+   20         46Q  46Q N   CA    347  348  169.57  139.70                  -40.30
+   21   5530  46Q  47L C   N     354  356  -59.35  -63.50   13.80    1.73 -108.50  179.98   10.13
+   21         47L  47L N   CA    356  357  -54.36  -41.20                  132.50
+   22   5531  47L  48A C   N     362  364  -93.82  -68.20   46.96    4.54  -62.50  150.15   23.28
+   22         48A  48A N   CA    364  365  105.95  145.30                  -40.90
+   23   5532  48A  49K C   N     367  369  -59.92  -70.20   21.51    1.33  -62.90  162.33   21.24
+   23         49K  49K N   CA    369  370  121.51  140.40                  -40.80
+   24   5537  53V  54Q C   N     403  405 -119.73 -121.10   10.94    0.50  -63.80  178.16   23.67
+   24         54Q  54Q N   CA    405  406  128.85  139.70                  -40.30
+   25   5542  58D  59S C   N     449  451  -79.84  -72.40   28.66    1.45  -64.10  145.78   11.57
+   25         59S  59S N   CA    451  452 -179.93  152.40                  -35.00
+   26   5547  63P  64G C   N     483  485   67.30   82.20   49.92    1.69  -80.20 -171.13    7.02
+   26         64G  64G N   CA    485  486   56.14    8.50                  174.10
+   27   5552  68R  69A C   N     523  525 -112.26 -134.00   27.11    0.69  -62.50  178.77   27.32
+   27         69A  69A N   CA    525  526  130.81  147.00                  -40.90
+   28   5553  69A  70M C   N     528  530 -135.13 -125.60   16.48    0.55  -63.40 -179.57   32.60
+   28         70M  70M N   CA    530  531  153.94  140.50                  -40.50
+   29   5554  70M  71A C   N     536  538 -131.31 -134.00    5.89    0.25  -62.50 -169.77   34.86
+   29         71A  71A N   CA    538  539  141.76  147.00                  -40.90
+   30   5557  73Y  74K C   N     561  563  -57.86  -70.20   20.48    1.70  -62.90  162.53   20.84
+   30         74K  74K N   CA    563  564  156.75  140.40                  -40.80
+   31   5559  75Q  76S C   N     579  581  -91.12  -72.40   57.62    4.03  -64.10  135.63    8.60
+   31         76S  76S N   CA    581  582   97.91  152.40                  -35.00
+   32   5560  76S  77Q C   N     585  587  150.31 -121.10  106.36    3.28  -63.80 -170.36   34.36
+   32         77Q  77Q N   CA    587  588 -161.45  139.70                  -40.30
+   33   5562  78H  79M C   N     604  606 -155.37  -63.40   94.06   16.03  -63.40   94.06   16.03
+   33         79M  79M N   CA    606  607  -20.79  -40.50                  -40.50
+   34   5564  80T  81E C   N     619  621  -95.27 -117.80   24.40    1.13  -63.60  176.39   25.30
+   34         81E  81E N   CA    621  622  146.17  136.80                  -40.30
+   35   5568  84R  85R C   N     653  655  -61.21  -63.00    8.63    1.06 -125.20 -178.48    9.83
+   35         85R  85R N   CA    655  656  -49.54  -41.10                  140.60
+   36   5571  87P  88H C   N     677  679   70.07   56.30   33.93    2.45 -125.60 -151.08    9.36
+   36         88H  88H N   CA    679  680    9.79   40.80                  138.80
+   37   5572  88H  89H C   N     687  689 -158.08  -63.20   96.78   14.29 -125.60  165.23    6.84
+   37         89H  89H N   CA    689  690  -23.21  -42.30                  138.80
+   38   5574  90E  91R C   N     706  708  -60.55  -63.00    3.98    0.70 -125.20 -170.08    7.56
+   38         91R  91R N   CA    708  709  -37.97  -41.10                  140.60
+   39   5577  93S  94D C   N     729  731  -27.97  -70.90   44.62    2.89  -63.30 -178.43   24.66
+   39         94D  94D N   CA    731  732  138.10  150.30                  -40.00
+   40   5579  95S  96D C   N     743  745  -48.88  -70.90   30.98    1.26  -63.30  169.12   21.77
+   40         96D  96D N   CA    745  746  128.50  150.30                  -40.00
+   41   5580  96D  97G C   N     751  753   57.08   78.70   49.18    0.73  -80.20  151.46   11.18
+   41         97G  97G N   CA    753  754 -121.93 -166.10                  174.10
+   42   5582  98L  99A C   N     763  765 -138.68 -134.00   40.00    2.36  -62.50  166.61   24.97
+   42         99A  99A N   CA    765  766  107.28  147.00                  -40.90
+   43   5584 100P 101P C   N     775  777  -55.59  -58.70   18.89    1.82  -64.50  159.32   11.43
+   43        101P 101P N   CA    777  778  -11.87  -30.50                  147.20
+   44   5585 101P 102Q C   N     782  784 -155.62 -121.10   49.40    1.61  -63.80  171.34   29.85
+   44        102Q 102Q N   CA    784  785  175.04  139.70                  -40.30
+   45   5587 103H 104L C   N     801  803 -150.91  -63.50   89.34   16.11 -108.50  173.09    8.85
+   45        104L 104L N   CA    803  804  -59.68  -41.20                  132.50
+   46   5591 107V 108E C   N     835  837 -165.51 -117.80   52.68    1.55  -63.60 -169.82   30.94
+   46        108E 108E N   CA    837  838  159.13  136.80                  -40.30
+   47   5592 108E 109G C   N     844  846  118.86   78.70   56.88    3.04  -80.20  171.79    9.07
+   47        109G 109G N   CA    846  847 -125.82 -166.10                  174.10
+   48   5597 113V 114E C   N     882  884 -116.97 -117.80   23.32    1.19  -63.60  168.29   25.46
+   48        114E 114E N   CA    884  885  160.10  136.80                  -40.30
+   49   5601 117D 118D C   N     919  921   66.08   54.50   77.76    6.66  -63.30 -155.95   33.24
+   49        118D 118D N   CA    921  922  117.79   40.90                  -40.00
+   50   5608 124H 125S C   N     985  987 -122.11 -136.60   33.82    1.35  -64.10  166.10   10.25
+   50        125S 125S N   CA    987  988  120.64  151.20                  -35.00
+   51   5614 130Y 131E C   N    1031 1033  -64.67  -69.30   16.05    1.37  -63.60  161.83   21.64
+   51        131E 131E N   CA   1033 1034  157.87  142.50                  -40.30
+   52   5617 133P 134E C   N    1054 1056  -71.09  -69.30   15.97    1.16  -63.60  161.50   21.95
+   52        134E 134E N   CA   1056 1057  158.37  142.50                  -40.30
+   53   5619 135V 136G C   N    1070 1072  108.47   82.20   39.20    1.16  -80.20 -121.93    7.77
+   53        136G 136G N   CA   1072 1073  -20.60    8.50                  174.10
+   54   5620 136G 137S C   N    1074 1076 -179.70 -136.60   43.27    1.62  -64.10 -154.49   23.24
+   54        137S 137S N   CA   1076 1077  155.08  151.20                  -35.00
+   55   5621 137S 138D C   N    1080 1082  -99.06  -96.50    8.13    0.34  -63.30  165.81   18.58
+   55        138D 138D N   CA   1082 1083  121.91  114.20                  -40.00
+   56   5628 144Y 145N C   N    1138 1140 -123.96 -119.90   12.00    0.62  -63.20  177.53   19.53
+   56        145N 145N N   CA   1140 1141  125.71  137.00                  -41.10
+   57   5632 148C 149N C   N    1172 1174  155.65 -119.90   98.52    2.95  -63.20 -167.31   31.29
+   57        149N 149N N   CA   1174 1175 -172.26  137.00                  -41.10
+   58   5633 149N 150S C   N    1180 1182   71.27   56.90   22.55    1.18  -64.10  145.75   19.48
+   58        150S 150S N   CA   1182 1183   19.02   36.40                  -35.00
+   59   5634 150S 151S C   N    1186 1188  175.41  -64.10  120.78   15.74  -64.10  120.78   15.74
+   59        151S 151S N   CA   1188 1189  -43.38  -35.00                  -35.00
+   60   5636 152C 153M C   N    1198 1200 -161.62 -125.60   88.04    3.33  -63.40  139.23   27.80
+   60        153M 153M N   CA   1200 1201 -139.17  140.50                  -40.50
+   61   5637 153M 154G C   N    1206 1208   94.72   82.20   16.85    1.30  -80.20 -126.74    8.11
+   61        154G 154G N   CA   1208 1209   19.78    8.50                  174.10
+   62   5639 155G 156M C   N    1214 1216  -52.07  -73.00   21.08    1.63  -63.40  174.33   25.17
+   62        156M 156M N   CA   1216 1217  145.53  143.00                  -40.50
+   63   5640 156M 157N C   N    1222 1224 -160.71 -119.90   46.36    1.41  -63.20 -172.72   28.82
+   63        157N 157N N   CA   1224 1225  159.01  137.00                  -41.10
+   64   5643 159R 160P C   N    1252 1254  -83.09  -58.70   24.65    2.95  -64.50  175.12   14.07
+   64        160P 160P N   CA   1254 1255  -26.93  -30.50                  147.20
+   65   5644 160P 161I C   N    1259 1261   41.06  -97.30  138.56    5.91 -120.60  162.00   10.90
+   65        161I 161I N   CA   1261 1262  119.80  127.20                  130.30
+   66   5651 167L 168E C   N    1313 1315 -106.88 -117.80   26.84    1.09  -63.60  158.61   19.11
+   66        168E 168E N   CA   1315 1316  112.29  136.80                  -40.30
+   67   5652 168E 169D C   N    1322 1324  -86.27  -70.90   21.75    0.88  -63.30  156.03   20.71
+   67        169D 169D N   CA   1324 1325  165.68  150.30                  -40.00
+   68   5653 169D 170S C   N    1330 1332  -87.97  -72.40   54.50    2.71  -64.10  122.72   10.49
+   68        170S 170S N   CA   1332 1333 -155.37  152.40                  -35.00
+   69   5654 170S 171S C   N    1336 1338   65.99   56.90   15.57    0.74  -64.10  142.75   19.03
+   69        171S 171S N   CA   1338 1339   23.76   36.40                  -35.00
+   70   5655 171S 172G C   N    1342 1344   65.50   82.20   32.04    0.88  -80.20 -159.14    6.64
+   70        172G 172G N   CA   1344 1345   35.84    8.50                  174.10
+   71   5656 172G 173N C   N    1346 1348 -124.93 -119.90    9.32    0.30  -63.20 -175.32   26.60
+   71        173N 173N N   CA   1348 1349  144.84  137.00                  -41.10
+   72   5661 177R 178N C   N    1385 1387 -125.00 -119.90   26.38    1.07  -63.20  167.82   24.49
+   72        178N 178N N   CA   1387 1388  162.88  137.00                  -41.10
+   73   5662 178N 179S C   N    1393 1395 -132.05 -136.60    5.97    0.33  -64.10 -176.98   18.07
+   73        179S 179S N   CA   1395 1396  155.06  151.20                  -35.00
+   74   5664 180F 181E C   N    1410 1412 -118.92 -117.80   26.26    1.30  -63.60  166.15   25.28
+   74        181E 181E N   CA   1412 1413  163.03  136.80                  -40.30
+   75   5669 185C 186A C   N    1450 1452  176.95 -134.00   53.10    1.21  -62.50 -166.19   38.06
+   75        186A 186A N   CA   1452 1453  167.34  147.00                  -40.90
+   76   5671 187C 188P C   N    1461 1463  -54.37  -58.70   14.77    0.92  -64.50  168.49   13.11
+   76        188P 188P N   CA   1463 1464  -44.62  -30.50                  147.20
+   77   5673 189G 190R C   N    1472 1474  -64.31  -63.00    2.85    0.47 -125.20 -173.98   10.02
+   77        190R 190R N   CA   1474 1475  -43.62  -41.10                  140.60
+   78   5675 191D 192R C   N    1491 1493  -61.39  -63.00    5.01    0.59 -125.20 -175.08   10.00
+   78        192R 192R N   CA   1493 1494  -45.84  -41.10                  140.60
+   79   5676 192R 193R C   N    1502 1504  -61.98  -63.00    1.09    0.16 -125.20 -171.19   10.19
+   79        193R 193R N   CA   1504 1505  -41.49  -41.10                  140.60
+   80   5677 193R 194T C   N    1513 1515  -63.65  -63.20    0.60    0.10 -124.80 -175.55    9.66
+   80        194T 194T N   CA   1515 1516  -42.49  -42.10                  143.50
+
+
+report______> Distribution of short non-bonded contacts:
+
+
+DISTANCE1:  0.00 2.10 2.20 2.30 2.40 2.50 2.60 2.70 2.80 2.90 3.00 3.10 3.20 3.30 3.40
+DISTANCE2:  2.10 2.20 2.30 2.40 2.50 2.60 2.70 2.80 2.90 3.00 3.10 3.20 3.30 3.40 3.50
+FREQUENCY:     0    0    0    0    0   21   41  110  119  150  143  171  202  195  251
+
+
+<< end of ENERGY.
+iupac_m_397W> Atoms were not swapped because of the uncertainty of how to handle the H atom.
+iupac_m_397W> Atoms were not swapped because of the uncertainty of how to handle the H atom.
+iupac_m_484W> Dihedral still outside +-90:       90.0876
+>> Model assessment by DOPE potential
+iatmcls_286W> MODEL atom not classified:  LEU:OXT  LEU
+
+
+>> ENERGY; Differences between the model's features and restraints:
+Number of all residues in MODEL                   :      199
+Number of all, selected real atoms                :     1565    1565
+Number of all, selected pseudo atoms              :        0       0
+Number of all static, selected restraints         :    10228   10228
+COVALENT_CYS                                      :        F
+NONBONDED_SEL_ATOMS                               :        1
+Number of non-bonded pairs (excluding 1-2,1-3,1-4):   297512
+Dynamic pairs routine                             : 1, NATM x NATM double loop
+Atomic shift for contacts update (UPDATE_DYNAMIC) :    0.390
+LENNARD_JONES_SWITCH                              :    6.500   7.500
+COULOMB_JONES_SWITCH                              :    6.500   7.500
+RESIDUE_SPAN_RANGE                                :        1    9999
+NLOGN_USE                                         :       15
+CONTACT_SHELL                                     :   15.000
+DYNAMIC_PAIRS,_SPHERE,_COULOMB,_LENNARD,_MODELLER :        T       F       F       F       T
+SPHERE_STDV                                       :    0.050
+RADII_FACTOR                                      :    0.820
+Current energy                                    :      -16878.2266
+
+
+
+
+<< end of ENERGY.
+DOPE score               : -16878.226562
+
+
+>> ENERGY; Differences between the model's features and restraints:
+Number of all residues in MODEL                   :      199
+Number of all, selected real atoms                :     1565    1565
+Number of all, selected pseudo atoms              :        0       0
+Number of all static, selected restraints         :    10228   10228
+COVALENT_CYS                                      :        F
+NONBONDED_SEL_ATOMS                               :        1
+Number of non-bonded pairs (excluding 1-2,1-3,1-4):     3366
+Dynamic pairs routine                             : 2, NATM x NATM cell sorting
+Atomic shift for contacts update (UPDATE_DYNAMIC) :    0.390
+LENNARD_JONES_SWITCH                              :    6.500   7.500
+COULOMB_JONES_SWITCH                              :    6.500   7.500
+RESIDUE_SPAN_RANGE                                :        0   99999
+NLOGN_USE                                         :       15
+CONTACT_SHELL                                     :    4.000
+DYNAMIC_PAIRS,_SPHERE,_COULOMB,_LENNARD,_MODELLER :        T       T       F       F       F
+SPHERE_STDV                                       :    0.050
+RADII_FACTOR                                      :    0.820
+Current energy                                    :        1596.7756
+
+
+
+
+
+Summary of the restraint violations: 
+
+   NUM     ... number of restraints.
+   NUMVI   ... number of restraints with RVIOL > VIOL_REPORT_CUT[i].
+   RVIOL   ... relative difference from the best value.
+   NUMVP   ... number of restraints with -Ln(pdf) > VIOL_REPORT_CUT2[i].
+   RMS_1   ... RMS(feature, minimally_violated_basis_restraint, NUMB).
+   RMS_2   ... RMS(feature, best_value, NUMB).
+   MOL.PDF ... scaled contribution to -Ln(Molecular pdf).
+
+ #                     RESTRAINT_GROUP      NUM   NUMVI  NUMVP   RMS_1   RMS_2         MOL.PDF     S_i
+------------------------------------------------------------------------------------------------------
+ 1 Bond length potential              :    1603       0      0   0.006   0.006      17.186       1.000
+ 2 Bond angle potential               :    2177       0     15   2.423   2.423      249.55       1.000
+ 3 Stereochemical cosine torsion poten:    1051       0     67  53.193  53.193      457.55       1.000
+ 4 Stereochemical improper torsion pot:     653       0      0   1.177   1.177      17.243       1.000
+ 5 Soft-sphere overlap restraints     :    3366       0      0   0.003   0.003      3.7877       1.000
+ 6 Lennard-Jones 6-12 potential       :       0       0      0   0.000   0.000      0.0000       1.000
+ 7 Coulomb point-point electrostatic p:       0       0      0   0.000   0.000      0.0000       1.000
+ 8 H-bonding potential                :       0       0      0   0.000   0.000      0.0000       1.000
+ 9 Distance restraints 1 (CA-CA)      :    3966       0      3   0.279   0.279      320.68       1.000
+10 Distance restraints 2 (N-O)        :       0       0      0   0.000   0.000      0.0000       1.000
+11 Mainchain Phi dihedral restraints  :       0       0      0   0.000   0.000      0.0000       1.000
+12 Mainchain Psi dihedral restraints  :       0       0      0   0.000   0.000      0.0000       1.000
+13 Mainchain Omega dihedral restraints:     198       1      5  13.376  13.376      67.093       1.000
+14 Sidechain Chi_1 dihedral restraints:     179       0      1  84.057  84.057      58.976       1.000
+15 Sidechain Chi_2 dihedral restraints:     121       0      0  72.429  72.429      40.820       1.000
+16 Sidechain Chi_3 dihedral restraints:      61       0      0  76.632  76.632      32.654       1.000
+17 Sidechain Chi_4 dihedral restraints:      22       0      0 104.655 104.655      16.181       1.000
+18 Disulfide distance restraints      :       0       0      0   0.000   0.000      0.0000       1.000
+19 Disulfide angle restraints         :       0       0      0   0.000   0.000      0.0000       1.000
+20 Disulfide dihedral angle restraints:       0       0      0   0.000   0.000      0.0000       1.000
+21 Lower bound distance restraints    :       0       0      0   0.000   0.000      0.0000       1.000
+22 Upper bound distance restraints    :       0       0      0   0.000   0.000      0.0000       1.000
+23 Distance restraints 3 (SDCH-MNCH)  :       0       0      0   0.000   0.000      0.0000       1.000
+24 Sidechain Chi_5 dihedral restraints:       0       0      0   0.000   0.000      0.0000       1.000
+25 Phi/Psi pair of dihedral restraints:     197      81     48  43.139 119.243      315.05       1.000
+26 Distance restraints 4 (SDCH-SDCH)  :       0       0      0   0.000   0.000      0.0000       1.000
+27 Distance restraints 5 (X-Y)        :       0       0      0   0.000   0.000      0.0000       1.000
+28 NMR distance restraints 6 (X-Y)    :       0       0      0   0.000   0.000      0.0000       1.000
+29 NMR distance restraints 7 (X-Y)    :       0       0      0   0.000   0.000      0.0000       1.000
+30 Minimal distance restraints        :       0       0      0   0.000   0.000      0.0000       1.000
+31 Non-bonded restraints              :       0       0      0   0.000   0.000      0.0000       1.000
+32 Atomic accessibility restraints    :       0       0      0   0.000   0.000      0.0000       1.000
+33 Atomic density restraints          :       0       0      0   0.000   0.000      0.0000       1.000
+34 Absolute position restraints       :       0       0      0   0.000   0.000      0.0000       1.000
+35 Dihedral angle difference restraint:       0       0      0   0.000   0.000      0.0000       1.000
+36 GBSA implicit solvent potential    :       0       0      0   0.000   0.000      0.0000       1.000
+37 EM density fitting potential       :       0       0      0   0.000   0.000      0.0000       1.000
+38 SAXS restraints                    :       0       0      0   0.000   0.000      0.0000       1.000
+39 Symmetry restraints                :       0       0      0   0.000   0.000      0.0000       1.000
+
+
+
+# Heavy relative violation of each residue is written to: .0WUB_2.V99990002
+# The profile is NOT normalized by the number of restraints.
+# The profiles are smoothed over a window of residues:    1
+# The sum of all numbers in the file:   30490.4102
+
+
+
+List of the violated restraints:
+   A restraint is violated when the relative difference
+   from the best value (RVIOL) is larger than CUTOFF.
+
+   ICSR   ... index of a restraint in the current set.
+   RESNO  ... residue numbers of the first two atoms.
+   ATM    ... IUPAC atom names of the first two atoms.
+   FEAT   ... the value of the feature in the model.
+   restr  ... the mean of the basis restraint with the smallest
+              difference from the model (local minimum).
+   viol   ... difference from the local minimum.
+   rviol  ... relative difference from the local minimum.
+   RESTR  ... the best value (global minimum).
+   VIOL   ... difference from the best value.
+   RVIOL  ... relative difference from the best value.
+
+
+-------------------------------------------------------------------------------------------------
+
+Feature 13                           : Mainchain Omega dihedral restraints     
+List of the RVIOL violations larger than   :       4.5000
+
+    #   ICSR  RESNO1/2 ATM1/2   INDATM1/2    FEAT   restr    viol   rviol   RESTR    VIOL   RVIOL
+    1   5781 100P 100P CA  C     771  775   -8.35 -179.18  170.83   39.71 -179.18  170.83   39.71
+
+-------------------------------------------------------------------------------------------------
+
+Feature 25                           : Phi/Psi pair of dihedral restraints     
+List of the RVIOL violations larger than   :       6.5000
+
+    #   ICSR  RESNO1/2 ATM1/2   INDATM1/2    FEAT   restr    viol   rviol   RESTR    VIOL   RVIOL
+    1   5488   4S   5S C   N      34   36 -120.05 -136.60   59.80    2.64  -64.10  140.37    8.75
+    1          5S   5S N   CA     36   37   93.73  151.20                  -35.00
+    2   5489   5S   6S C   N      40   42 -144.05 -136.60   56.76    3.02  -64.10  152.56   10.23
+    2          6S   6S N   CA     42   43   94.93  151.20                  -35.00
+    3   5492   8P   9S C   N      60   62 -168.92 -136.60   51.43    1.76  -64.10  169.96   19.87
+    3          9S   9S N   CA     62   63 -168.80  151.20                  -35.00
+    4   5493   9S  10Q C   N      66   68  -76.68  -73.00   16.84    1.18  -63.80  165.07   23.61
+    4         10Q  10Q N   CA     68   69  124.27  140.70                  -40.30
+    5   5494  10Q  11K C   N      75   77 -152.23 -118.00   35.42    1.51  -62.90 -167.25   22.14
+    5         11K  11K N   CA     77   78  130.00  139.10                  -40.80
+    6   5496  12T  13Y C   N      91   93  -73.48  -63.50   11.90    2.25 -124.30 -178.04   11.84
+    6         13Y  13Y N   CA     93   94  -49.88  -43.40                  135.40
+    7   5497  13Y  14Q C   N     103  105   66.53   55.10   79.38    6.66  -63.80 -154.29   36.59
+    7         14Q  14Q N   CA    105  106  118.85   40.30                  -40.30
+    8   5505  21L  22G C   N     168  170 -156.98 -167.20   58.08    2.13  -80.20   95.43    6.96
+    8         22G  22G N   CA    170  171  117.43  174.60                  174.10
+    9   5509  25H  26S C   N     201  203 -122.35 -136.60   15.77    0.49  -64.10 -171.36   11.62
+    9         26S  26S N   CA    203  204  144.42  151.20                  -35.00
+   10   5510  26S  27G C   N     207  209 -147.57 -167.20   66.90    2.30  -80.20   92.55    6.59
+   10         27G  27G N   CA    209  210  110.64  174.60                  174.10
+   11   5512  28T  29A C   N     218  220   60.23  -68.20  144.34   13.98  -62.50  163.44   25.64
+   11         29A  29A N   CA    220  221 -148.82  145.30                  -40.90
+   12   5514  30K  31S C   N     232  234 -107.53 -136.60   32.50    1.00  -64.10  177.06   11.03
+   12         31S  31S N   CA    234  235  136.65  151.20                  -35.00
+   13   5518  34C  35T C   N     258  260  -77.02  -63.20   14.19    2.36 -124.80  177.76    9.01
+   13         35T  35T N   CA    260  261  -45.29  -42.10                  143.50
+   14   5519  35T  36Y C   N     265  267   47.89   55.90   42.68    2.43 -124.30 -179.55   11.56
+   14         36Y  36Y N   CA    267  268   81.43   39.50                  135.40
+   15   5520  36Y  37S C   N     277  279  -82.28  -72.40   25.38    1.83  -64.10  165.03   11.00
+   15         37S  37S N   CA    279  280  129.02  152.40                  -35.00
+   16   5522  38P  39A C   N     290  292   73.21  -62.50  161.99   26.43  -62.50  161.99   26.43
+   16         39A  39A N   CA    292  293 -129.35  -40.90                  -40.90
+   17   5524  40L  41N C   N     303  305  -83.50  -71.20   34.57    2.55  -63.20  152.95   18.07
+   17         41N  41N N   CA    305  306  110.49  142.80                  -41.10
+   18   5525  41N  42K C   N     311  313 -144.87 -118.00   27.37    1.13  -62.90 -167.03   22.19
+   18         42K  42K N   CA    313  314  133.90  139.10                  -40.80
+   19   5526  42K  43M C   N     320  322 -103.55 -125.60   22.06    0.85  -63.40 -175.81   30.71
+   19         43M  43M N   CA    322  323  139.74  140.50                  -40.50
+   20   5529  45C  46Q C   N     345  347 -151.79 -121.10   62.06    2.31  -63.80  153.73   27.00
+   20         46Q  46Q N   CA    347  348 -166.36  139.70                  -40.30
+   21   5530  46Q  47L C   N     354  356  -57.61  -63.50   15.40    1.90 -108.50  179.43   10.11
+   21         47L  47L N   CA    356  357  -55.44  -41.20                  132.50
+   22   5531  47L  48A C   N     362  364  -92.34  -68.20   46.09    4.43  -62.50  149.94   23.29
+   22         48A  48A N   CA    364  365  106.04  145.30                  -40.90
+   23   5532  48A  49K C   N     367  369  -70.63  -70.20   16.88    1.23  -62.90  164.51   20.95
+   23         49K  49K N   CA    369  370  123.52  140.40                  -40.80
+   24   5537  53V  54Q C   N     403  405 -126.01 -121.10    5.16    0.17  -63.80 -171.05   31.09
+   24         54Q  54Q N   CA    405  406  141.28  139.70                  -40.30
+   25   5540  56W  57V C   N     434  436  -70.24  -62.40    7.91    1.30 -125.40 -178.18   10.11
+   25         57V  57V N   CA    436  437  -43.45  -42.40                  143.30
+   26   5541  57V  58D C   N     441  443   59.50   54.50    5.40    0.70  -63.30  148.18   25.22
+   26         58D  58D N   CA    443  444   42.94   40.90                  -40.00
+   27   5542  58D  59S C   N     449  451  172.19 -136.60   67.89    2.13  -64.10  178.89   21.83
+   27         59S  59S N   CA    451  452 -164.23  151.20                  -35.00
+   28   5547  63P  64G C   N     483  485   69.94   82.20   36.69    1.19  -80.20 -160.73    6.98
+   28         64G  64G N   CA    485  486   43.08    8.50                  174.10
+   29   5552  68R  69A C   N     523  525 -109.66 -134.00   26.75    0.61  -62.50 -177.02   28.07
+   29         69A  69A N   CA    525  526  135.90  147.00                  -40.90
+   30   5553  69A  70M C   N     528  530 -134.37 -125.60   18.47    0.67  -63.40  177.54   32.11
+   30         70M  70M N   CA    530  531  156.76  140.50                  -40.50
+   31   5554  70M  71A C   N     536  538 -132.10 -134.00    3.16    0.11  -62.50 -172.01   34.53
+   31         71A  71A N   CA    538  539  144.47  147.00                  -40.90
+   32   5557  73Y  74K C   N     561  563  -60.34  -70.20   13.46    1.13  -62.90  169.66   21.89
+   32         74K  74K N   CA    563  564  149.56  140.40                  -40.80
+   33   5558  74K  75Q C   N     570  572  -61.13  -73.00   18.58    1.43  -63.80  164.73   24.08
+   33         75Q  75Q N   CA    572  573  154.99  140.70                  -40.30
+   34   5559  75Q  76S C   N     579  581   76.72   56.90   33.54    1.62  -64.10  147.64   19.75
+   34         76S  76S N   CA    581  582    9.34   36.40                  -35.00
+   35   5560  76S  77Q C   N     585  587 -140.81 -121.10   47.68    1.87  -63.80  156.80   27.02
+   35         77Q  77Q N   CA    587  588 -176.89  139.70                  -40.30
+   36   5562  78H  79M C   N     604  606 -146.77  -63.40   92.26   14.04  -63.40   92.26   14.04
+   36         79M  79M N   CA    606  607   -1.00  -40.50                  -40.50
+   37   5564  80T  81E C   N     619  621  -92.88 -117.80   27.69    0.81  -63.60  167.61   20.87
+   37         81E  81E N   CA    621  622  124.73  136.80                  -40.30
+   38   5571  87P  88H C   N     677  679   66.40   56.30   19.76    1.51 -125.60 -156.42    9.03
+   38         88H  88H N   CA    679  680   23.82   40.80                  138.80
+   39   5572  88H  89H C   N     687  689 -166.28  -63.20  103.09   16.30 -125.60 -175.60    7.70
+   39         89H  89H N   CA    689  690  -41.05  -42.30                  138.80
+   40   5573  89H  90E C   N     697  699  -76.48  -69.30   18.37    1.15  -63.60  160.80   22.16
+   40         90E  90E N   CA    699  700  159.41  142.50                  -40.30
+   41   5574  90E  91R C   N     706  708   71.98   57.30   30.16    1.50 -125.20 -152.31   11.19
+   41         91R  91R N   CA    708  709   11.65   38.00                  140.60
+   42   5577  93S  94D C   N     729  731  -85.64  -70.90   14.79    1.16  -63.30  172.33   22.68
+   42         94D  94D N   CA    731  732  149.12  150.30                  -40.00
+   43   5579  95S  96D C   N     743  745  -52.97  -70.90   32.10    1.10  -63.30  164.00   20.88
+   43         96D  96D N   CA    745  746  123.68  150.30                  -40.00
+   44   5581  97G  98L C   N     755  757   59.23   60.20   13.20    0.70 -108.50 -169.78    8.39
+   44         98L  98L N   CA    757  758   42.76   29.60                  132.50
+   45   5585 101P 102Q C   N     782  784 -111.85 -121.10   41.50    2.10  -63.80  147.58   24.25
+   45        102Q 102Q N   CA    784  785 -179.84  139.70                  -40.30
+   46   5588 104L 105I C   N     809  811   57.28  -97.30  154.62    6.49 -120.60  178.00   12.15
+   46        105I 105I N   CA    811  812  123.87  127.20                  130.30
+   47   5591 107V 108E C   N     835  837 -156.23 -117.80   49.42    1.50  -63.60  177.85   28.80
+   47        108E 108E N   CA    837  838  167.87  136.80                  -40.30
+   48   5592 108E 109G C   N     844  846  114.81   78.70   50.16    2.70  -80.20  173.80    9.48
+   48        109G 109G N   CA    846  847 -131.28 -166.10                  174.10
+   49   5597 113V 114E C   N     882  884 -126.37 -117.80   16.86    0.64  -63.60  179.70   27.50
+   49        114E 114E N   CA    884  885  151.32  136.80                  -40.30
+   50   5600 116L 117D C   N     911  913  -81.10  -96.50   21.37    0.89  -63.30  140.50   16.34
+   50        117D 117D N   CA    913  914   99.37  114.20                  -40.00
+   51   5601 117D 118D C   N     919  921  -81.35  -70.90   13.23    0.61  -63.30  162.60   21.20
+   51        118D 118D N   CA    921  922  158.41  150.30                  -40.00
+   52   5608 124H 125S C   N     985  987 -132.92 -136.60   45.14    2.21  -64.10  157.09    9.96
+   52        125S 125S N   CA    987  988  106.21  151.20                  -35.00
+   53   5613 129P 130Y C   N    1019 1021  -65.43  -63.50   14.16    2.35 -124.30  177.23   11.93
+   53        130Y 130Y N   CA   1021 1022  -57.43  -43.40                  135.40
+   54   5614 130Y 131E C   N    1031 1033  138.06 -117.80  105.70    3.46  -63.60 -131.44   38.63
+   54        131E 131E N   CA   1033 1034  154.87  136.80                  -40.30
+   55   5617 133P 134E C   N    1054 1056  -73.70  -69.30   21.56    1.49  -63.60  156.41   21.41
+   55        134E 134E N   CA   1056 1057  163.61  142.50                  -40.30
+   56   5619 135V 136G C   N    1070 1072  109.47   82.20   52.64    1.45  -80.20 -133.45    7.91
+   56        136G 136G N   CA   1072 1073  -36.52    8.50                  174.10
+   57   5620 136G 137S C   N    1074 1076 -163.88 -136.60   27.30    1.06  -64.10 -160.50   21.64
+   57        137S 137S N   CA   1076 1077  152.25  151.20                  -35.00
+   58   5621 137S 138D C   N    1080 1082  -92.40  -96.50    7.35    0.30  -63.30  162.92   18.53
+   58        138D 138D N   CA   1082 1083  120.30  114.20                  -40.00
+   59   5628 144Y 145N C   N    1138 1140 -127.35 -119.90   20.37    1.06  -63.20  171.59   18.74
+   59        145N 145N N   CA   1140 1141  118.05  137.00                  -41.10
+   60   5629 145N 146Y C   N    1146 1148  -68.48  -63.50    5.19    0.95 -124.30 -171.78   12.39
+   60        146Y 146Y N   CA   1148 1149  -44.85  -43.40                  135.40
+   61   5630 146Y 147M C   N    1158 1160   65.65   56.30   27.47    0.76  -63.40  138.21   27.83
+   61        147M 147M N   CA   1160 1161    8.97   34.80                  -40.50
+   62   5632 148C 149N C   N    1172 1174  160.60 -119.90   86.01    2.77  -63.20 -158.07   32.41
+   62        149N 149N N   CA   1174 1175  169.82  137.00                  -41.10
+   63   5633 149N 150S C   N    1180 1182  113.97 -136.60  133.68    4.09  -64.10 -157.21   20.56
+   63        150S 150S N   CA   1182 1183 -132.02  151.20                  -35.00
+   64   5636 152C 153M C   N    1198 1200 -162.26 -125.60   72.15    2.54  -63.40  153.07   30.13
+   64        153M 153M N   CA   1200 1201 -157.36  140.50                  -40.50
+   65   5637 153M 154G C   N    1206 1208  135.63   78.70   88.26    4.58  -80.20  168.51    7.37
+   65        154G 154G N   CA   1208 1209  -98.66 -166.10                  174.10
+   66   5639 155G 156M C   N    1214 1216  -63.67  -73.00   45.17    3.22  -63.40  132.31   19.77
+   66        156M 156M N   CA   1216 1217 -172.81  143.00                  -40.50
+   67   5640 156M 157N C   N    1222 1224 -135.40 -119.90   87.27    3.59  -63.20  120.14   18.93
+   67        157N 157N N   CA   1224 1225 -137.12  137.00                  -41.10
+   68   5641 157N 158R C   N    1230 1232  -60.29  -63.00   15.02    2.22 -125.20  179.11    7.02
+   68        158R 158R N   CA   1232 1233  -26.33  -41.10                  140.60
+   69   5642 158R 159R C   N    1241 1243   83.79   57.30   29.46    2.64 -125.20 -169.88   10.21
+   69        159R 159R N   CA   1243 1244   25.09   38.00                  140.60
+   70   5651 167L 168E C   N    1313 1315 -104.53 -117.80   19.86    0.66  -63.60  167.40   20.35
+   70        168E 168E N   CA   1315 1316  122.02  136.80                  -40.30
+   71   5652 168E 169D C   N    1322 1324  -98.71  -70.90   27.81    2.13  -63.30  173.91   23.73
+   71        169D 169D N   CA   1324 1325  149.73  150.30                  -40.00
+   72   5655 171S 172G C   N    1342 1344   97.17   82.20   14.99    1.03  -80.20 -117.90    8.12
+   72        172G 172G N   CA   1344 1345    9.32    8.50                  174.10
+   73   5656 172G 173N C   N    1346 1348 -102.69 -119.90   17.22    0.70  -63.20 -177.95   20.83
+   73        173N 173N N   CA   1348 1349  136.62  137.00                  -41.10
+   74   5661 177R 178N C   N    1385 1387 -138.94 -119.90   32.10    0.99  -63.20  173.46   25.95
+   74        178N 178N N   CA   1387 1388  162.85  137.00                  -41.10
+   75   5662 178N 179S C   N    1393 1395 -137.52 -136.60    6.86    0.33  -64.10 -177.57   18.45
+   75        179S 179S N   CA   1395 1396  158.00  151.20                  -35.00
+   76   5664 180F 181E C   N    1410 1412 -116.66 -117.80   26.20    1.34  -63.60  165.46   25.06
+   76        181E 181E N   CA   1412 1413  162.98  136.80                  -40.30
+   77   5669 185C 186A C   N    1450 1452 -153.74 -134.00   33.07    1.18  -62.50  171.81   33.01
+   77        186A 186A N   CA   1452 1453  173.52  147.00                  -40.90
+   78   5671 187C 188P C   N    1461 1463  -49.44  -58.70   26.10    1.57  -64.50  158.62   12.65
+   78        188P 188P N   CA   1463 1464  -54.90  -30.50                  147.20
+   79   5673 189G 190R C   N    1472 1474   76.36   57.30   72.79    3.69 -125.20 -125.52   12.93
+   79        190R 190R N   CA   1474 1475  -32.25   38.00                  140.60
+   80   5675 191D 192R C   N    1491 1493  -63.40  -63.00    0.78    0.13 -125.20 -171.93   10.13
+   80        192R 192R N   CA   1493 1494  -41.77  -41.10                  140.60
+   81   5676 192R 193R C   N    1502 1504  -62.08  -63.00    1.57    0.18 -125.20 -172.05   10.14
+   81        193R 193R N   CA   1504 1505  -42.37  -41.10                  140.60
+
+
+report______> Distribution of short non-bonded contacts:
+
+
+DISTANCE1:  0.00 2.10 2.20 2.30 2.40 2.50 2.60 2.70 2.80 2.90 3.00 3.10 3.20 3.30 3.40
+DISTANCE2:  2.10 2.20 2.30 2.40 2.50 2.60 2.70 2.80 2.90 3.00 3.10 3.20 3.30 3.40 3.50
+FREQUENCY:     0    0    0    0    0   15   36  117  123  150  138  184  203  235  234
+
+
+<< end of ENERGY.
+iupac_m_397W> Atoms were not swapped because of the uncertainty of how to handle the H atom.
+iupac_m_397W> Atoms were not swapped because of the uncertainty of how to handle the H atom.
+iupac_m_484W> Dihedral still outside +-90:      -90.3136
+iupac_m_397W> Atoms were not swapped because of the uncertainty of how to handle the H atom.
+iupac_m_397W> Atoms were not swapped because of the uncertainty of how to handle the H atom.
+iupac_m_397W> Atoms were not swapped because of the uncertainty of how to handle the H atom.
+iupac_m_397W> Atoms were not swapped because of the uncertainty of how to handle the H atom.
+>> Model assessment by DOPE potential
+iatmcls_286W> MODEL atom not classified:  LEU:OXT  LEU
+
+
+>> ENERGY; Differences between the model's features and restraints:
+Number of all residues in MODEL                   :      199
+Number of all, selected real atoms                :     1565    1565
+Number of all, selected pseudo atoms              :        0       0
+Number of all static, selected restraints         :    10228   10228
+COVALENT_CYS                                      :        F
+NONBONDED_SEL_ATOMS                               :        1
+Number of non-bonded pairs (excluding 1-2,1-3,1-4):   292259
+Dynamic pairs routine                             : 1, NATM x NATM double loop
+Atomic shift for contacts update (UPDATE_DYNAMIC) :    0.390
+LENNARD_JONES_SWITCH                              :    6.500   7.500
+COULOMB_JONES_SWITCH                              :    6.500   7.500
+RESIDUE_SPAN_RANGE                                :        1    9999
+NLOGN_USE                                         :       15
+CONTACT_SHELL                                     :   15.000
+DYNAMIC_PAIRS,_SPHERE,_COULOMB,_LENNARD,_MODELLER :        T       F       F       F       T
+SPHERE_STDV                                       :    0.050
+RADII_FACTOR                                      :    0.820
+Current energy                                    :      -16446.5410
+
+
+
+
+<< end of ENERGY.
+DOPE score               : -16446.541016
+
+
+>> ENERGY; Differences between the model's features and restraints:
+Number of all residues in MODEL                   :      199
+Number of all, selected real atoms                :     1565    1565
+Number of all, selected pseudo atoms              :        0       0
+Number of all static, selected restraints         :    10228   10228
+COVALENT_CYS                                      :        F
+NONBONDED_SEL_ATOMS                               :        1
+Number of non-bonded pairs (excluding 1-2,1-3,1-4):     3292
+Dynamic pairs routine                             : 2, NATM x NATM cell sorting
+Atomic shift for contacts update (UPDATE_DYNAMIC) :    0.390
+LENNARD_JONES_SWITCH                              :    6.500   7.500
+COULOMB_JONES_SWITCH                              :    6.500   7.500
+RESIDUE_SPAN_RANGE                                :        0   99999
+NLOGN_USE                                         :       15
+CONTACT_SHELL                                     :    4.000
+DYNAMIC_PAIRS,_SPHERE,_COULOMB,_LENNARD,_MODELLER :        T       T       F       F       F
+SPHERE_STDV                                       :    0.050
+RADII_FACTOR                                      :    0.820
+Current energy                                    :        1671.3342
+
+
+
+
+
+Summary of the restraint violations: 
+
+   NUM     ... number of restraints.
+   NUMVI   ... number of restraints with RVIOL > VIOL_REPORT_CUT[i].
+   RVIOL   ... relative difference from the best value.
+   NUMVP   ... number of restraints with -Ln(pdf) > VIOL_REPORT_CUT2[i].
+   RMS_1   ... RMS(feature, minimally_violated_basis_restraint, NUMB).
+   RMS_2   ... RMS(feature, best_value, NUMB).
+   MOL.PDF ... scaled contribution to -Ln(Molecular pdf).
+
+ #                     RESTRAINT_GROUP      NUM   NUMVI  NUMVP   RMS_1   RMS_2         MOL.PDF     S_i
+------------------------------------------------------------------------------------------------------
+ 1 Bond length potential              :    1603       0      0   0.006   0.006      18.234       1.000
+ 2 Bond angle potential               :    2177       0      6   2.374   2.374      237.21       1.000
+ 3 Stereochemical cosine torsion poten:    1051       0     71  53.404  53.404      455.19       1.000
+ 4 Stereochemical improper torsion pot:     653       0      0   1.211   1.211      18.757       1.000
+ 5 Soft-sphere overlap restraints     :    3292       0      0   0.004   0.004      5.7148       1.000
+ 6 Lennard-Jones 6-12 potential       :       0       0      0   0.000   0.000      0.0000       1.000
+ 7 Coulomb point-point electrostatic p:       0       0      0   0.000   0.000      0.0000       1.000
+ 8 H-bonding potential                :       0       0      0   0.000   0.000      0.0000       1.000
+ 9 Distance restraints 1 (CA-CA)      :    3966       0      1   0.276   0.276      322.21       1.000
+10 Distance restraints 2 (N-O)        :       0       0      0   0.000   0.000      0.0000       1.000
+11 Mainchain Phi dihedral restraints  :       0       0      0   0.000   0.000      0.0000       1.000
+12 Mainchain Psi dihedral restraints  :       0       0      0   0.000   0.000      0.0000       1.000
+13 Mainchain Omega dihedral restraints:     198       4      3  24.669  24.669      52.347       1.000
+14 Sidechain Chi_1 dihedral restraints:     179       0      3  86.304  86.304      64.557       1.000
+15 Sidechain Chi_2 dihedral restraints:     121       0      1  77.582  77.582      51.205       1.000
+16 Sidechain Chi_3 dihedral restraints:      61       0      0  74.044  74.044      34.797       1.000
+17 Sidechain Chi_4 dihedral restraints:      22       0      0 119.905 119.905      15.847       1.000
+18 Disulfide distance restraints      :       0       0      0   0.000   0.000      0.0000       1.000
+19 Disulfide angle restraints         :       0       0      0   0.000   0.000      0.0000       1.000
+20 Disulfide dihedral angle restraints:       0       0      0   0.000   0.000      0.0000       1.000
+21 Lower bound distance restraints    :       0       0      0   0.000   0.000      0.0000       1.000
+22 Upper bound distance restraints    :       0       0      0   0.000   0.000      0.0000       1.000
+23 Distance restraints 3 (SDCH-MNCH)  :       0       0      0   0.000   0.000      0.0000       1.000
+24 Sidechain Chi_5 dihedral restraints:       0       0      0   0.000   0.000      0.0000       1.000
+25 Phi/Psi pair of dihedral restraints:     197      88     57  46.708 122.826      395.27       1.000
+26 Distance restraints 4 (SDCH-SDCH)  :       0       0      0   0.000   0.000      0.0000       1.000
+27 Distance restraints 5 (X-Y)        :       0       0      0   0.000   0.000      0.0000       1.000
+28 NMR distance restraints 6 (X-Y)    :       0       0      0   0.000   0.000      0.0000       1.000
+29 NMR distance restraints 7 (X-Y)    :       0       0      0   0.000   0.000      0.0000       1.000
+30 Minimal distance restraints        :       0       0      0   0.000   0.000      0.0000       1.000
+31 Non-bonded restraints              :       0       0      0   0.000   0.000      0.0000       1.000
+32 Atomic accessibility restraints    :       0       0      0   0.000   0.000      0.0000       1.000
+33 Atomic density restraints          :       0       0      0   0.000   0.000      0.0000       1.000
+34 Absolute position restraints       :       0       0      0   0.000   0.000      0.0000       1.000
+35 Dihedral angle difference restraint:       0       0      0   0.000   0.000      0.0000       1.000
+36 GBSA implicit solvent potential    :       0       0      0   0.000   0.000      0.0000       1.000
+37 EM density fitting potential       :       0       0      0   0.000   0.000      0.0000       1.000
+38 SAXS restraints                    :       0       0      0   0.000   0.000      0.0000       1.000
+39 Symmetry restraints                :       0       0      0   0.000   0.000      0.0000       1.000
+
+
+
+# Heavy relative violation of each residue is written to: .0WUB_2.V99990003
+# The profile is NOT normalized by the number of restraints.
+# The profiles are smoothed over a window of residues:    1
+# The sum of all numbers in the file:   32416.0352
+
+
+
+List of the violated restraints:
+   A restraint is violated when the relative difference
+   from the best value (RVIOL) is larger than CUTOFF.
+
+   ICSR   ... index of a restraint in the current set.
+   RESNO  ... residue numbers of the first two atoms.
+   ATM    ... IUPAC atom names of the first two atoms.
+   FEAT   ... the value of the feature in the model.
+   restr  ... the mean of the basis restraint with the smallest
+              difference from the model (local minimum).
+   viol   ... difference from the local minimum.
+   rviol  ... relative difference from the local minimum.
+   RESTR  ... the best value (global minimum).
+   VIOL   ... difference from the best value.
+   RVIOL  ... relative difference from the best value.
+
+
+-------------------------------------------------------------------------------------------------
+
+Feature 13                           : Mainchain Omega dihedral restraints     
+List of the RVIOL violations larger than   :       4.5000
+
+    #   ICSR  RESNO1/2 ATM1/2   INDATM1/2    FEAT   restr    viol   rviol   RESTR    VIOL   RVIOL
+    1   5682   1W   1W CA  C       2   13   -5.52 -179.18  173.66   40.36 -179.18  173.66   40.36
+    2   5741  60T  60T CA  C     458  462  -12.37 -179.18  166.81   38.77 -179.18  166.81   38.77
+    3   5781 100P 100P CA  C     771  775   -5.50 -179.18  173.68   40.37 -179.18  173.68   40.37
+    4   5813 132P 132P CA  C    1043 1047  -12.31 -179.18  166.88   38.79 -179.18  166.88   38.79
+
+-------------------------------------------------------------------------------------------------
+
+Feature 25                           : Phi/Psi pair of dihedral restraints     
+List of the RVIOL violations larger than   :       6.5000
+
+    #   ICSR  RESNO1/2 ATM1/2   INDATM1/2    FEAT   restr    viol   rviol   RESTR    VIOL   RVIOL
+    1   5487   3L   4S C   N      28   30  -72.65  -72.40    0.51    0.04  -64.10  173.25   13.08
+    1          4S   4S N   CA     30   31  151.96  152.40                  -35.00
+    2   5488   4S   5S C   N      34   36   54.96   56.90    5.31    0.22  -64.10  141.43   18.49
+    2          5S   5S N   CA     36   37   41.34   36.40                  -35.00
+    3   5489   5S   6S C   N      40   42 -132.33 -136.60   55.78    2.74  -64.10  147.33    9.47
+    3          6S   6S N   CA     42   43   95.58  151.20                  -35.00
+    4   5492   8P   9S C   N      60   62 -161.51 -136.60   45.34    1.65  -64.10  167.22   19.15
+    4          9S   9S N   CA     62   63 -170.92  151.20                  -35.00
+    5   5493   9S  10Q C   N      66   68  -78.05  -73.00   11.47    0.85  -63.80  171.29   24.46
+    5         10Q  10Q N   CA     68   69  130.40  140.70                  -40.30
+    6   5494  10Q  11K C   N      75   77 -152.52 -118.00   34.53    1.32  -62.90 -159.93   22.98
+    6         11K  11K N   CA     77   78  138.07  139.10                  -40.80
+    7   5496  12T  13Y C   N      91   93  -71.55  -63.50    8.28    1.51 -124.30 -173.16   12.19
+    7         13Y  13Y N   CA     93   94  -45.35  -43.40                  135.40
+    8   5497  13Y  14Q C   N     103  105   51.24   55.10   34.38    2.14  -63.80  162.50   29.25
+    8         14Q  14Q N   CA    105  106   74.47   40.30                  -40.30
+    9   5499  15G  16S C   N     116  118  -58.31  -72.40   14.56    1.13  -64.10  169.05   11.92
+    9         16S  16S N   CA    118  119  156.05  152.40                  -35.00
+   10   5500  16S  17Y C   N     122  124   59.66   55.90   25.13    2.04 -124.30 -170.16   15.69
+   10         17Y  17Y N   CA    124  125   64.34   39.50                  135.40
+   11   5509  25H  26S C   N     201  203 -121.49 -136.60   18.59    0.57  -64.10 -175.48   11.37
+   11         26S  26S N   CA    203  204  140.37  151.20                  -35.00
+   12   5514  30K  31S C   N     232  234 -153.36 -136.60   19.81    0.60  -64.10 -173.94   19.90
+   12         31S  31S N   CA    234  235  161.75  151.20                  -35.00
+   13   5520  36Y  37S C   N     277  279  -98.99  -72.40   37.71    3.00  -64.10  164.40   10.36
+   13         37S  37S N   CA    279  280  125.66  152.40                  -35.00
+   14   5522  38P  39A C   N     290  292   72.60  -62.50  153.06   25.65  -62.50  153.06   25.65
+   14         39A  39A N   CA    292  293 -112.84  -40.90                  -40.90
+   15   5524  40L  41N C   N     303  305  -84.60  -71.20   35.70    2.65  -63.20  152.32   17.94
+   15         41N  41N N   CA    305  306  109.71  142.80                  -41.10
+   16   5525  41N  42K C   N     311  313 -144.14 -118.00   30.73    1.02  -62.90 -177.03   28.62
+   16         42K  42K N   CA    313  314  155.26  139.10                  -40.80
+   17   5526  42K  43M C   N     320  322 -131.64 -125.60   16.19    0.87  -63.40  179.47   22.61
+   17         43M  43M N   CA    322  323  125.49  140.50                  -40.50
+   18   5529  45C  46Q C   N     345  347 -146.88 -121.10   60.10    2.33  -63.80  150.69   26.35
+   18         46Q  46Q N   CA    347  348 -166.02  139.70                  -40.30
+   19   5530  46Q  47L C   N     354  356  -58.35  -63.50   14.92    1.85 -108.50  179.44   10.11
+   19         47L  47L N   CA    356  357  -55.20  -41.20                  132.50
+   20   5531  47L  48A C   N     362  364  -90.72  -68.20   55.22    5.17  -62.50  138.68   21.52
+   20         48A  48A N   CA    364  365   94.88  145.30                  -40.90
+   21   5532  48A  49K C   N     367  369  -55.53  -70.20   34.92    2.20  -62.90  149.69   19.85
+   21         49K  49K N   CA    369  370  108.71  140.40                  -40.80
+   22   5537  53V  54Q C   N     403  405 -129.72 -121.10   30.15    1.55  -63.80  164.87   21.48
+   22         54Q  54Q N   CA    405  406  110.81  139.70                  -40.30
+   23   5541  57V  58D C   N     441  443  -91.05  -63.30   67.37   10.11  -63.30   67.37   10.11
+   23         58D  58D N   CA    443  444 -101.39  -40.00                  -40.00
+   24   5542  58D  59S C   N     449  451  -67.39  -72.40   17.06    0.85  -64.10  171.13   12.21
+   24         59S  59S N   CA    451  452  136.10  152.40                  -35.00
+   25   5547  63P  64G C   N     483  485   64.63   82.20   48.43    1.52  -80.20 -171.61    6.82
+   25         64G  64G N   CA    485  486   53.64    8.50                  174.10
+   26   5552  68R  69A C   N     523  525 -104.10 -134.00   32.72    0.74  -62.50  179.49   27.68
+   26         69A  69A N   CA    525  526  133.71  147.00                  -40.90
+   27   5553  69A  70M C   N     528  530 -137.06 -125.60   18.65    0.61  -63.40 -179.96   32.69
+   27         70M  70M N   CA    530  531  155.21  140.50                  -40.50
+   28   5554  70M  71A C   N     536  538 -132.48 -134.00   14.13    0.77  -62.50 -172.60   28.25
+   28         71A  71A N   CA    538  539  132.95  147.00                  -40.90
+   29   5557  73Y  74K C   N     561  563  -62.96  -70.20   13.93    1.15  -62.90  166.90   21.68
+   29         74K  74K N   CA    563  564  152.30  140.40                  -40.80
+   30   5558  74K  75Q C   N     570  572  -63.05  -73.00   19.24    1.45  -63.80  162.53   23.86
+   30         75Q  75Q N   CA    572  573  157.17  140.70                  -40.30
+   31   5559  75Q  76S C   N     579  581   67.96   56.90   12.22    1.56  -64.10  152.67   20.11
+   31         76S  76S N   CA    581  582   41.60   36.40                  -35.00
+   32   5560  76S  77Q C   N     585  587  179.85 -121.10   67.58    2.08  -63.80 -172.41   33.28
+   32         77Q  77Q N   CA    587  588  172.55  139.70                  -40.30
+   33   5562  78H  79M C   N     604  606 -145.81  -63.40   87.98   13.98  -63.40   87.98   13.98
+   33         79M  79M N   CA    606  607   -9.71  -40.50                  -40.50
+   34   5568  84R  85R C   N     653  655  -61.84  -63.00    9.86    1.26 -125.20 -179.97    9.75
+   34         85R  85R N   CA    655  656  -50.89  -41.10                  140.60
+   35   5571  87P  88H C   N     677  679   64.10   56.30   17.17    1.26 -125.60 -155.46    9.05
+   35         88H  88H N   CA    679  680   25.51   40.80                  138.80
+   36   5572  88H  89H C   N     687  689 -169.93  -63.20  107.87   16.27 -125.60  171.30    7.25
+   36         89H  89H N   CA    689  690  -26.67  -42.30                  138.80
+   37   5576  92C  93S C   N     723  725   60.00   56.90    7.27    0.30  -64.10  140.01   18.56
+   37         93S  93S N   CA    725  726   29.83   36.40                  -35.00
+   38   5577  93S  94D C   N     729  731  -95.46  -96.50   24.32    1.02  -63.30 -178.63   20.64
+   38         94D  94D N   CA    731  732  138.50  114.20                  -40.00
+   39   5579  95S  96D C   N     743  745  -51.02  -70.90   40.84    1.37  -63.30  155.11   19.91
+   39         96D  96D N   CA    745  746  114.62  150.30                  -40.00
+   40   5580  96D  97G C   N     751  753   59.33   78.70   42.46    0.63  -80.20  150.94   11.12
+   40         97G  97G N   CA    753  754 -128.32 -166.10                  174.10
+   41   5582  98L  99A C   N     763  765 -163.48  -62.50  112.45   22.86  -62.50  112.45   22.86
+   41         99A  99A N   CA    765  766  -90.37  -40.90                  -40.90
+   42   5584 100P 101P C   N     775  777  -68.43  -58.70   14.52    1.94  -64.50  171.58   12.60
+   42        101P 101P N   CA    777  778  -41.27  -30.50                  147.20
+   43   5585 101P 102Q C   N     782  784 -165.20 -121.10   57.83    1.83  -63.80  174.96   30.78
+   43        102Q 102Q N   CA    784  785  177.12  139.70                  -40.30
+   44   5587 103H 104L C   N     801  803 -121.81  -63.50   61.93   11.35 -108.50  165.96    8.82
+   44        104L 104L N   CA    803  804  -62.07  -41.20                  132.50
+   45   5591 107V 108E C   N     835  837 -153.42 -117.80   42.62    1.26  -63.60 -176.96   29.38
+   45        108E 108E N   CA    837  838  160.21  136.80                  -40.30
+   46   5592 108E 109G C   N     844  846  136.83   78.70   70.10    3.90  -80.20  154.65    7.92
+   46        109G 109G N   CA    846  847 -126.93 -166.10                  174.10
+   47   5597 113V 114E C   N     882  884 -118.26 -117.80    6.82    0.33  -63.60 -175.62   27.68
+   47        114E 114E N   CA    884  885  143.61  136.80                  -40.30
+   48   5598 114E 115Y C   N     891  893  -69.89  -63.50    8.65    1.64 -124.30 -176.38   12.09
+   48        115Y 115Y N   CA    893  894  -49.23  -43.40                  135.40
+   49   5599 115Y 116L C   N     903  905   44.22   60.20   44.41    1.56 -108.50  164.63    7.31
+   49        116L 116L N   CA    905  906   71.04   29.60                  132.50
+   50   5600 116L 117D C   N     911  913  -55.18  -70.90   26.62    0.94  -63.30  169.00   21.36
+   50        117D 117D N   CA    913  914  128.81  150.30                  -40.00
+   51   5601 117D 118D C   N     919  921  -95.51  -70.90   43.75    1.51  -63.30  137.36   19.02
+   51        118D 118D N   CA    921  922 -173.52  150.30                  -40.00
+   52   5603 119R 120N C   N     938  940   82.70   55.90   58.45    2.79  -63.20  148.69   23.63
+   52        120N 120N N   CA    940  941  -12.44   39.50                  -41.10
+   53   5608 124H 125S C   N     985  987   56.57   56.90   26.37    1.65  -64.10  155.31   19.77
+   53        125S 125S N   CA    987  988   62.77   36.40                  -35.00
+   54   5614 130Y 131E C   N    1031 1033  -65.65  -69.30   37.23    2.97  -63.60  140.17   18.80
+   54        131E 131E N   CA   1033 1034  179.55  142.50                  -40.30
+   55   5615 131E 132P C   N    1040 1042  -42.85  -58.70   22.43    1.58  -64.50  167.83   13.69
+   55        132P 132P N   CA   1042 1043  -46.38  -30.50                  147.20
+   56   5617 133P 134E C   N    1054 1056  -62.61  -69.30   19.45    1.69  -63.60  158.94   21.14
+   56        134E 134E N   CA   1056 1057  160.76  142.50                  -40.30
+   57   5619 135V 136G C   N    1070 1072  102.37   82.20   36.06    0.99  -80.20 -118.04    8.13
+   57        136G 136G N   CA   1072 1073  -21.38    8.50                  174.10
+   58   5620 136G 137S C   N    1074 1076 -177.56 -136.60   49.87    1.52  -64.10 -175.60   21.54
+   58        137S 137S N   CA   1076 1077  179.64  151.20                  -35.00
+   59   5621 137S 138D C   N    1080 1082 -116.59  -96.50   31.69    1.30  -63.30  140.22   15.00
+   59        138D 138D N   CA   1082 1083   89.70  114.20                  -40.00
+   60   5625 141T 142I C   N    1108 1110  -75.48  -63.40   14.33    2.71 -120.60 -175.99   12.23
+   60        142I 142I N   CA   1110 1111  -51.31  -43.60                  130.30
+   61   5628 144Y 145N C   N    1138 1140 -132.58 -119.90   16.67    0.90  -63.20 -178.90   19.74
+   61        145N 145N N   CA   1140 1141  126.19  137.00                  -41.10
+   62   5632 148C 149N C   N    1172 1174  169.25 -119.90   81.67    2.46  -63.20 -169.65   30.52
+   62        149N 149N N   CA   1174 1175  177.62  137.00                  -41.10
+   63   5633 149N 150S C   N    1180 1182  112.15 -136.60  139.20    4.28  -64.10 -162.03   20.42
+   63        150S 150S N   CA   1182 1183 -125.14  151.20                  -35.00
+   64   5634 150S 151S C   N    1186 1188  -95.33  -72.40   57.53    4.15  -64.10  138.21    8.67
+   64        151S 151S N   CA   1188 1189   99.64  152.40                  -35.00
+   65   5636 152C 153M C   N    1198 1200 -173.74 -125.60   78.52    2.56  -63.40  160.80   31.97
+   65        153M 153M N   CA   1200 1201 -157.47  140.50                  -40.50
+   66   5637 153M 154G C   N    1206 1208   92.17   82.20   15.21    1.15  -80.20 -128.78    7.97
+   66        154G 154G N   CA   1208 1209   19.99    8.50                  174.10
+   67   5639 155G 156M C   N    1214 1216  -61.60  -73.00   22.14    1.70  -63.40  157.53   23.38
+   67        156M 156M N   CA   1216 1217  161.98  143.00                  -40.50
+   68   5640 156M 157N C   N    1222 1224 -130.21 -119.90   66.86    2.79  -63.20  133.83   20.46
+   68        157N 157N N   CA   1224 1225 -156.94  137.00                  -41.10
+   69   5643 159R 160P C   N    1252 1254  -74.90  -58.70   16.36    2.20  -64.50 -179.72   14.01
+   69        160P 160P N   CA   1254 1255  -32.78  -30.50                  147.20
+   70   5644 160P 161I C   N    1259 1261   44.28  -97.30  141.97    6.13 -120.60  165.44   11.03
+   70        161I 161I N   CA   1261 1262  116.68  127.20                  130.30
+   71   5649 165I 166T C   N    1298 1300  -77.10  -63.20   14.02    2.28 -124.80  179.02    9.07
+   71        166T 166T N   CA   1300 1301  -43.96  -42.10                  143.50
+   72   5650 166T 167L C   N    1305 1307   57.86   60.20   11.83    0.52 -108.50 -170.23    8.37
+   72        167L 167L N   CA   1307 1308   41.20   29.60                  132.50
+   73   5651 167L 168E C   N    1313 1315  -78.99  -69.30   21.14    1.89  -63.60  164.73   21.16
+   73        168E 168E N   CA   1315 1316  123.71  142.50                  -40.30
+   74   5652 168E 169D C   N    1322 1324  -93.71  -70.90   25.13    1.44  -63.30  162.05   21.94
+   74        169D 169D N   CA   1324 1325  160.83  150.30                  -40.00
+   75   5653 169D 170S C   N    1330 1332  -81.74  -72.40   59.53    3.19  -64.10  115.16    9.50
+   75        170S 170S N   CA   1332 1333 -148.80  152.40                  -35.00
+   76   5654 170S 171S C   N    1336 1338   69.27   56.90   28.80    1.18  -64.10  140.89   18.85
+   76        171S 171S N   CA   1338 1339   10.40   36.40                  -35.00
+   77   5655 171S 172G C   N    1342 1344   70.33   82.20   18.78    0.54  -80.20 -146.75    6.77
+   77        172G 172G N   CA   1344 1345   23.05    8.50                  174.10
+   78   5656 172G 173N C   N    1346 1348 -116.03 -119.90    4.28    0.22  -63.20 -172.46   20.99
+   78        173N 173N N   CA   1348 1349  138.84  137.00                  -41.10
+   79   5661 177R 178N C   N    1385 1387 -124.88 -119.90   29.68    1.23  -63.20  164.64   24.08
+   79        178N 178N N   CA   1387 1388  166.26  137.00                  -41.10
+   80   5662 178N 179S C   N    1393 1395 -141.90 -136.60    5.33    0.20  -64.10 -170.04   19.31
+   80        179S 179S N   CA   1395 1396  151.70  151.20                  -35.00
+   81   5664 180F 181E C   N    1410 1412 -103.26 -117.80   28.10    1.54  -63.60  163.72   24.07
+   81        181E 181E N   CA   1412 1413  160.85  136.80                  -40.30
+   82   5669 185C 186A C   N    1450 1452 -177.71 -134.00   52.37    1.27  -62.50 -176.16   36.14
+   82        186A 186A N   CA   1452 1453  175.85  147.00                  -40.90
+   83   5672 188P 189G C   N    1468 1470  104.57   82.20   74.86    2.54  -80.20 -145.93    8.62
+   83        189G 189G N   CA   1470 1471  -62.93    8.50                  174.10
+   84   5673 189G 190R C   N    1472 1474  -71.91  -63.00    8.93    1.45 -125.20 -173.31    9.96
+   84        190R 190R N   CA   1474 1475  -40.48  -41.10                  140.60
+   85   5675 191D 192R C   N    1491 1493  -65.26  -63.00    2.52    0.46 -125.20 -172.96   10.06
+   85        192R 192R N   CA   1493 1494  -42.22  -41.10                  140.60
+   86   5676 192R 193R C   N    1502 1504  -61.29  -63.00    3.71    0.42 -125.20 -173.68   10.07
+   86        193R 193R N   CA   1504 1505  -44.39  -41.10                  140.60
+   87   5680 196E 197E C   N    1538 1540  -68.19  -69.30    3.00    0.26  -63.60  174.46   23.51
+   87        197E 197E N   CA   1540 1541  145.29  142.50                  -40.30
+   88   5681 197E 198N C   N    1547 1549   55.49   55.90   18.96    1.30  -63.20  154.91   25.29
+   88        198N 198N N   CA   1549 1550   58.45   39.50                  -41.10
+
+
+report______> Distribution of short non-bonded contacts:
+
+
+DISTANCE1:  0.00 2.10 2.20 2.30 2.40 2.50 2.60 2.70 2.80 2.90 3.00 3.10 3.20 3.30 3.40
+DISTANCE2:  2.10 2.20 2.30 2.40 2.50 2.60 2.70 2.80 2.90 3.00 3.10 3.20 3.30 3.40 3.50
+FREQUENCY:     0    0    0    0    0   23   38  115  108  144  167  165  207  211  260
+
+
+<< end of ENERGY.
+
+>> Summary of successfully produced models:
+Filename                          molpdf     DOPE score
+-------------------------------------------------------
+.0WUB_2.B99990001.pdb         1480.54065   -16916.18359
+.0WUB_2.B99990002.pdb         1596.77563   -16878.22656
+.0WUB_2.B99990003.pdb         1671.33423   -16446.54102
+
+
+
+
+
+COMPARISON OF SEVERAL 3D STRUCTURES:
+
+
+  #  ALGNMT CODE      ATOM FILE                          
+
+  1  model_ca         /data/user/krde/CABSflex_snakemake/cabs_production/cabsflex/example_run_1/2XWR_A_91-289_WT/xray/no_restraints/.0WUB_2.pdb
+  2  .0WUB_2_9999000  .0WUB_2.B99990001.pdb
+  3  .0WUB_2_9999000  .0WUB_2.B99990002.pdb
+  4  .0WUB_2_9999000  .0WUB_2.B99990003.pdb
+
+
+
+Variability at a given position is calculated as: 
+VAR = 1/Nij * sum_ij (feat_i - feat_j)
+sum runs over all pairs of proteins with residues present.
+
+
+
+>> Least-squares superposition (FIT)           :       T
+
+   Atom types for superposition/RMS (FIT_ATOMS): CA
+   Atom type for position average/variability (VARATOM): CA
+
+
+   Position comparison (FIT_ATOMS): 
+
+       Cutoff for RMS calculation:     3.5000
+
+       Upper = RMS, Lower = numb equiv positions
+
+        model_ca.0WUB_2_.0WUB_2_.0WUB_2_
+model_ca   0.000   0.361   0.447   0.437
+.0WUB_2_     199   0.000   0.392   0.362
+.0WUB_2_     199     199   0.000   0.431
+.0WUB_2_     199     199     199   0.000
+
+
+
+   Distance comparison (FIT_ATOMS): 
+
+       Cutoff for rms calculation:     3.5000
+
+       Upper = Distance RMS, Lower = numb equiv distances
+
+        model_ca.0WUB_2_.0WUB_2_.0WUB_2_
+model_ca   0.000   0.279   0.354   0.339
+.0WUB_2_   19701   0.000   0.288   0.290
+.0WUB_2_   19701   19701   0.000   0.334
+.0WUB_2_   19701   19701   19701   0.000
+
+>> Sequence comparison: 
+
+       Diag=numb res, Upper=numb equiv res, Lower = % seq ID
+
+
+         model_ca.0WUB_2_.0WUB_2_.0WUB_2_
+model_ca      199     199     199     199
+.0WUB_2_      100     199     199     199
+.0WUB_2_      100     100     199     199
+.0WUB_2_      100     100     100     199
+
+
+>> Dihedral angle comparison: Alph
+
+
+       Cutoff for rms comparison:    60.0000
+
+       Upper = RMS Alph, Lower = numb of equiv angles
+
+        model_ca.0WUB_2_.0WUB_2_.0WUB_2_
+model_ca   0.000  12.063  12.383  13.329
+.0WUB_2_     189   0.000  12.084  12.261
+.0WUB_2_     187     191   0.000   9.975
+.0WUB_2_     188     195     189   0.000
+
+
+>> Dihedral angle comparison: Phi 
+
+
+       Cutoff for rms comparison:    60.0000
+
+       Upper = RMS Phi , Lower = numb of equiv angles
+
+        model_ca.0WUB_2_.0WUB_2_.0WUB_2_
+model_ca   0.000   0.000   0.000   0.000
+.0WUB_2_       0   0.000  17.141  17.220
+.0WUB_2_       0     167   0.000  18.233
+.0WUB_2_       0     174     169   0.000
+
+
+>> Dihedral angle comparison: Psi 
+
+
+       Cutoff for rms comparison:    15.0000
+
+       Upper = RMS Psi , Lower = numb of equiv angles
+
+        model_ca.0WUB_2_.0WUB_2_.0WUB_2_
+model_ca   0.000   0.000   0.000   0.000
+.0WUB_2_       0   0.000   7.616   7.018
+.0WUB_2_       0     122   0.000   7.137
+.0WUB_2_       0     120     113   0.000
+
+
+>> Dihedral angle comparison: Omeg
+
+
+       Cutoff for rms comparison:    60.0000
+
+       Upper = RMS Omeg, Lower = numb of equiv angles
+
+        model_ca.0WUB_2_.0WUB_2_.0WUB_2_
+model_ca   0.000   0.000   0.000   0.000
+.0WUB_2_       0   0.000   5.643   5.071
+.0WUB_2_       0     197   0.000   5.397
+.0WUB_2_       0     194     195   0.000
+
+
+>> Dihedral angle comparison: chi1
+
+
+       Cutoff for rms comparison:    60.0000
+
+       Upper = RMS chi1, Lower = numb of equiv angles
+
+        model_ca.0WUB_2_.0WUB_2_.0WUB_2_
+model_ca   0.000   0.000   0.000   0.000
+.0WUB_2_       0   0.000  13.559  14.595
+.0WUB_2_       0      91   0.000  13.669
+.0WUB_2_       0      89      83   0.000
+
+
+>> Dihedral angle comparison: chi2
+
+
+       Cutoff for rms comparison:    60.0000
+
+       Upper = RMS chi2, Lower = numb of equiv angles
+
+        model_ca.0WUB_2_.0WUB_2_.0WUB_2_
+model_ca   0.000   6.298  19.750  28.483
+.0WUB_2_       8   0.000  22.711  22.973
+.0WUB_2_      14      75   0.000  23.722
+.0WUB_2_       8      70      66   0.000
+
+
+>> Dihedral angle comparison: chi3
+
+
+       Cutoff for rms comparison:    60.0000
+
+       Upper = RMS chi3, Lower = numb of equiv angles
+
+        model_ca.0WUB_2_.0WUB_2_.0WUB_2_
+model_ca   0.000  39.883  34.867  35.432
+.0WUB_2_       4   0.000  25.714  26.640
+.0WUB_2_       3      33   0.000  25.591
+.0WUB_2_       6      36      41   0.000
+
+
+>> Dihedral angle comparison: chi4
+
+
+       Cutoff for rms comparison:    60.0000
+
+       Upper = RMS chi4, Lower = numb of equiv angles
+
+        model_ca.0WUB_2_.0WUB_2_.0WUB_2_
+model_ca   0.000   0.000   0.000   0.000
+.0WUB_2_       0   0.000  29.116  30.891
+.0WUB_2_       0       7   0.000  23.615
+.0WUB_2_       0       9       6   0.000
+
+
+>> Dihedral angle comparison: chi5
+
+
+       Cutoff for rms comparison:    60.0000
+
+       Upper = RMS chi5, Lower = numb of equiv angles
+
+        model_ca.0WUB_2_.0WUB_2_.0WUB_2_
+model_ca   0.000   0.000   0.000   0.000
+.0WUB_2_       0   0.000   0.000   0.000
+.0WUB_2_       0       0   0.000   0.000
+.0WUB_2_       0       0       0   0.000
+
+
+
+>> Ramachandran mainchain class substitution
+   prot 1 --> prot 2; class on vert --> class on horiz
+
+              A      P      B      L      E      U
+      A      58     27      5     16      3      0
+      P       9     91     23      2      3      0
+      B      20     32    224     16      7      0
+      L       7      4      9     16      2      0
+      E       1      4      6      2      4      0
+      U     102    143    283     45     18     12
+
+
+   Summary (% does not count undefined):
+
+   CODE   # ID # NID # TOT   % ID  % NID  % TOT
+      A     58    51   109    9.8    8.6   18.4
+      P     91    37   128   15.4    6.3   21.7
+      B    224    75   299   37.9   12.7   50.6
+      L     16    22    38    2.7    3.7    6.4
+      E      4    13    17    0.7    2.2    2.9
+   --------------------------------------------
+   SUMS    393   198   591   66.5   33.5  100.0
+   --------------------------------------------
+      U     12   591   603    1.0   49.5   50.5
+
+
+
+>> Dihedral class substitution: Alph
+   prot 1 --> prot 2; class on vert --> class on horiz
+
+              1      2      3      4
+      1      81     12     20      0
+      2      32    238     23      0
+      3      17      3    750      0
+      4       0      0      0     18
+
+
+   Summary (% does not count undefined):
+
+   CODE   # ID # NID # TOT   % ID  % NID  % TOT
+      1     81    32   113    6.9    2.7    9.6
+      2    238    55   293   20.2    4.7   24.9
+      3    750    20   770   63.8    1.7   65.5
+   --------------------------------------------
+   SUMS   1069   107  1176   90.9    9.1  100.0
+   --------------------------------------------
+      4     18     0    18    1.5    0.0    1.5
+
+
+
+>> Dihedral class substitution: Phi 
+   prot 1 --> prot 2; class on vert --> class on horiz
+
+              1      2      3      4
+      1     160     19     28      0
+      2      10     27     17      0
+      3      41     22    270      0
+      4     209     61    324      6
+
+
+   Summary (% does not count undefined):
+
+   CODE   # ID # NID # TOT   % ID  % NID  % TOT
+      1    160    47   207   26.9    7.9   34.8
+      2     27    27    54    4.5    4.5    9.1
+      3    270    63   333   45.5   10.6   56.1
+   --------------------------------------------
+   SUMS    457   137   594   76.9   23.1  100.0
+   --------------------------------------------
+      4      6   594   600    0.5   49.7   50.3
+
+
+
+>> Dihedral class substitution: Psi 
+   prot 1 --> prot 2; class on vert --> class on horiz
+
+              1      2      3      4
+      1      62     21     29      0
+      2      11     48     11      0
+      3      29     21    362      0
+      4     107     80    407      6
+
+
+   Summary (% does not count undefined):
+
+   CODE   # ID # NID # TOT   % ID  % NID  % TOT
+      1     62    50   112   10.4    8.4   18.9
+      2     48    22    70    8.1    3.7   11.8
+      3    362    50   412   60.9    8.4   69.4
+   --------------------------------------------
+   SUMS    472   122   594   79.5   20.5  100.0
+   --------------------------------------------
+      4      6   594   600    0.5   49.7   50.3
+
+
+
+>> Dihedral class substitution: Omeg
+   prot 1 --> prot 2; class on vert --> class on horiz
+
+              1      2      3      4
+      1     585      8      0      0
+      2       0      1      0      0
+      3       0      0      0      0
+      4     589      5      0      6
+
+
+   Summary (% does not count undefined):
+
+   CODE   # ID # NID # TOT   % ID  % NID  % TOT
+      1    585     8   593   98.5    1.3   99.8
+      2      1     0     1    0.2    0.0    0.2
+      3      0     0     0    0.0    0.0    0.0
+   --------------------------------------------
+   SUMS    586     8   594   98.7    1.3  100.0
+   --------------------------------------------
+      4      6   594   600    0.5   49.7   50.3
+
+
+
+>> Dihedral class substitution: chi1
+   prot 1 --> prot 2; class on vert --> class on horiz
+
+              1      2      3      4
+      1     120     80     39      0
+      2      64    100     33      0
+      3      39     37     25      0
+      4     231    207     99    120
+
+
+   Summary (% does not count undefined):
+
+   CODE   # ID # NID # TOT   % ID  % NID  % TOT
+      1    120   119   239   22.3   22.2   44.5
+      2    100    97   197   18.6   18.1   36.7
+      3     25    76   101    4.7   14.2   18.8
+   --------------------------------------------
+   SUMS    245   292   537   45.6   54.4  100.0
+   --------------------------------------------
+      4    120   537   657   10.1   45.0   55.0
+
+
+
+>> Dihedral class substitution: chi2
+   prot 1 --> prot 2; class on vert --> class on horiz
+
+              1      2      3      4
+      1     156     51     15      0
+      2      93     73      9      0
+      3      11      9      9      0
+      4     187     82     31    468
+
+
+   Summary (% does not count undefined):
+
+   CODE   # ID # NID # TOT   % ID  % NID  % TOT
+      1    156    66   222   36.6   15.5   52.1
+      2     73   102   175   17.1   23.9   41.1
+      3      9    20    29    2.1    4.7    6.8
+   --------------------------------------------
+   SUMS    238   188   426   55.9   44.1  100.0
+   --------------------------------------------
+      4    468   300   768   39.2   25.1   64.3
+
+
+
+>> Dihedral class substitution: chi3
+   prot 1 --> prot 2; class on vert --> class on horiz
+
+              1      2      3      4
+      1     112     20      6      0
+      2      21     26      7      0
+      3       9      6      9      0
+      4      74     53     23    828
+
+
+   Summary (% does not count undefined):
+
+   CODE   # ID # NID # TOT   % ID  % NID  % TOT
+      1    112    26   138   51.9   12.0   63.9
+      2     26    28    54   12.0   13.0   25.0
+      3      9    15    24    4.2    6.9   11.1
+   --------------------------------------------
+   SUMS    147    69   216   68.1   31.9  100.0
+   --------------------------------------------
+      4    828   150   978   69.3   12.6   81.9
+
+
+
+>> Dihedral class substitution: chi4
+   prot 1 --> prot 2; class on vert --> class on horiz
+
+              1      2      3      4
+      1      13      7      9      0
+      2      14      1      5      0
+      3       8      4      5      0
+      4      32     16     18   1062
+
+
+   Summary (% does not count undefined):
+
+   CODE   # ID # NID # TOT   % ID  % NID  % TOT
+      1     13    16    29   19.7   24.2   43.9
+      2      1    19    20    1.5   28.8   30.3
+      3      5    12    17    7.6   18.2   25.8
+   --------------------------------------------
+   SUMS     19    47    66   28.8   71.2  100.0
+   --------------------------------------------
+      4   1062    66  1128   88.9    5.5   94.5
+
+
+
+>> Dihedral class substitution: chi5
+   prot 1 --> prot 2; class on vert --> class on horiz
+
+              1      2      3      4
+      1       0      0      0      0
+      2       0      0      0      0
+      3       0      0      0      0
+      4       0      0      0   1194
+
+
+   Summary (% does not count undefined):
+
+   CODE   # ID # NID # TOT   % ID  % NID  % TOT
+      1      0     0     0    0.0    0.0    0.0
+      2      0     0     0    0.0    0.0    0.0
+      3      0     0     0    0.0    0.0    0.0
+   --------------------------------------------
+   SUMS      0     0     0    0.0    0.0    0.0
+   --------------------------------------------
+      4   1194     0  1194  100.0    0.0  100.0
+
+Least-squares dynamic programming alignment:
+     FIT_ATOMS atoms for alignment     : CA
+     Max dist from frw for equivalence :    6.0000
+     Gap introduction penalty          :    0.0000
+     Gap extension penalty             :    3.0000
+     Numb of residues in framework     :       199
+# Sequence alignment of the structurally conserved regions
+# [average distance and standard deviation are with respect
+#  to the framework (i.e., average structure)]
+#
+#  N av ds st dv   model_ .0WUB_ .0WUB_ .0WUB_ 
+# =============================================
+   1 0.345 0.103 * W  91  W   1  W   1  W   1  
+   2 0.293 0.097 * P  92  P   2  P   2  P   2  
+   3 0.226 0.052 * L  93  L   3  L   3  L   3  
+   4 0.279 0.053 * S  94  S   4  S   4  S   4  
+   5 0.235 0.130 * S  95  S   5  S   5  S   5  
+   6 0.264 0.075 * S  96  S   6  S   6  S   6  
+   7 0.308 0.101 * V  97  V   7  V   7  V   7  
+   8 0.186 0.083 * P  98  P   8  P   8  P   8  
+   9 0.249 0.157 * S  99  S   9  S   9  S   9  
+  10 0.080 0.011 * Q 100  Q  10  Q  10  Q  10  
+  11 0.156 0.029 * K 101  K  11  K  11  K  11  
+  12 0.175 0.048 * T 102  T  12  T  12  T  12  
+  13 0.250 0.107 * Y 103  Y  13  Y  13  Y  13  
+  14 0.249 0.093 * Q 104  Q  14  Q  14  Q  14  
+  15 0.327 0.110 * G 105  G  15  G  15  G  15  
+  16 0.267 0.173 * S 106  S  16  S  16  S  16  
+  17 0.172 0.110 * Y 107  Y  17  Y  17  Y  17  
+  18 0.243 0.085 * G 108  G  18  G  18  G  18  
+  19 0.185 0.073 * F 109  F  19  F  19  F  19  
+  20 0.162 0.069 * R 110  R  20  R  20  R  20  
+  21 0.116 0.050 * L 111  L  21  L  21  L  21  
+  22 0.230 0.121 * G 112  G  22  G  22  G  22  
+  23 0.153 0.056 * F 113  F  23  F  23  F  23  
+  24 0.130 0.072 * L 114  L  24  L  24  L  24  
+  25 0.131 0.041 * H 115  H  25  H  25  H  25  
+  26 0.095 0.040 * S 116  S  26  S  26  S  26  
+  27 0.195 0.093 * G 117  G  27  G  27  G  27  
+  28 0.279 0.109 * T 118  T  28  T  28  T  28  
+  29 0.659 0.381 * A 119  A  29  A  29  A  29  
+  30 0.576 0.313 * K 120  K  30  K  30  K  30  
+  31 0.291 0.094 * S 121  S  31  S  31  S  31  
+  32 0.158 0.046 * V 122  V  32  V  32  V  32  
+  33 0.255 0.063 * T 123  T  33  T  33  T  33  
+  34 0.229 0.032 * C 124  C  34  C  34  C  34  
+  35 0.164 0.053 * T 125  T  35  T  35  T  35  
+  36 0.165 0.104 * Y 126  Y  36  Y  36  Y  36  
+  37 0.220 0.055 * S 127  S  37  S  37  S  37  
+  38 0.202 0.105 * P 128  P  38  P  38  P  38  
+  39 0.463 0.144 * A 129  A  39  A  39  A  39  
+  40 0.293 0.159 * L 130  L  40  L  40  L  40  
+  41 0.155 0.030 * N 131  N  41  N  41  N  41  
+  42 0.126 0.069 * K 132  K  42  K  42  K  42  
+  43 0.108 0.037 * M 133  M  43  M  43  M  43  
+  44 0.125 0.034 * F 134  F  44  F  44  F  44  
+  45 0.115 0.057 * C 135  C  45  C  45  C  45  
+  46 0.234 0.088 * Q 136  Q  46  Q  46  Q  46  
+  47 0.173 0.083 * L 137  L  47  L  47  L  47  
+  48 0.175 0.081 * A 138  A  48  A  48  A  48  
+  49 0.155 0.041 * K 139  K  49  K  49  K  49  
+  50 0.170 0.020 * T 140  T  50  T  50  T  50  
+  51 0.132 0.037 * C 141  C  51  C  51  C  51  
+  52 0.098 0.044 * P 142  P  52  P  52  P  52  
+  53 0.102 0.035 * V 143  V  53  V  53  V  53  
+  54 0.141 0.066 * Q 144  Q  54  Q  54  Q  54  
+  55 0.151 0.035 * L 145  L  55  L  55  L  55  
+  56 0.210 0.058 * W 146  W  56  W  56  W  56  
+  57 0.134 0.059 * V 147  V  57  V  57  V  57  
+  58 0.244 0.120 * D 148  D  58  D  58  D  58  
+  59 0.325 0.073 * S 149  S  59  S  59  S  59  
+  60 0.340 0.174 * T 150  T  60  T  60  T  60  
+  61 0.201 0.050 * P 151  P  61  P  61  P  61  
+  62 0.144 0.081 * P 152  P  62  P  62  P  62  
+  63 0.204 0.084 * P 153  P  63  P  63  P  63  
+  64 0.205 0.100 * G 154  G  64  G  64  G  64  
+  65 0.143 0.051 * T 155  T  65  T  65  T  65  
+  66 0.197 0.055 * R 156  R  66  R  66  R  66  
+  67 0.132 0.074 * V 157  V  67  V  67  V  67  
+  68 0.140 0.038 * R 158  R  68  R  68  R  68  
+  69 0.076 0.030 * A 159  A  69  A  69  A  69  
+  70 0.082 0.028 * M 160  M  70  M  70  M  70  
+  71 0.084 0.041 * A 161  A  71  A  71  A  71  
+  72 0.069 0.014 * I 162  I  72  I  72  I  72  
+  73 0.163 0.049 * Y 163  Y  73  Y  73  Y  73  
+  74 0.188 0.020 * K 164  K  74  K  74  K  74  
+  75 0.166 0.041 * Q 165  Q  75  Q  75  Q  75  
+  76 0.297 0.071 * S 166  S  76  S  76  S  76  
+  77 0.267 0.111 * Q 167  Q  77  Q  77  Q  77  
+  78 0.211 0.034 * H 168  H  78  H  78  H  78  
+  79 0.110 0.036 * M 169  M  79  M  79  M  79  
+  80 0.232 0.095 * T 170  T  80  T  80  T  80  
+  81 0.134 0.036 * E 171  E  81  E  81  E  81  
+  82 0.164 0.073 * V 172  V  82  V  82  V  82  
+  83 0.136 0.072 * V 173  V  83  V  83  V  83  
+  84 0.159 0.038 * R 174  R  84  R  84  R  84  
+  85 0.168 0.053 * R 175  R  85  R  85  R  85  
+  86 0.113 0.030 * C 176  C  86  C  86  C  86  
+  87 0.186 0.087 * P 177  P  87  P  87  P  87  
+  88 0.196 0.048 * H 178  H  88  H  88  H  88  
+  89 0.220 0.117 * H 179  H  89  H  89  H  89  
+  90 0.256 0.058 * E 180  E  90  E  90  E  90  
+  91 0.369 0.214 * R 181  R  91  R  91  R  91  
+  92 0.281 0.088 * C 182  C  92  C  92  C  92  
+  93 0.291 0.121 * S 183  S  93  S  93  S  93  
+  94 0.230 0.092 * D 184  D  94  D  94  D  94  
+  95 0.133 0.077 * S 185  S  95  S  95  S  95  
+  96 0.172 0.067 * D 186  D  96  D  96  D  96  
+  97 0.584 0.281 * G 187  G  97  G  97  G  97  
+  98 0.236 0.138 * L 188  L  98  L  98  L  98  
+  99 0.152 0.067 * A 189  A  99  A  99  A  99  
+ 100 0.316 0.091 * P 190  P 100  P 100  P 100  
+ 101 0.415 0.087 * P 191  P 101  P 101  P 101  
+ 102 0.413 0.167 * Q 192  Q 102  Q 102  Q 102  
+ 103 0.317 0.154 * H 193  H 103  H 103  H 103  
+ 104 0.083 0.010 * L 194  L 104  L 104  L 104  
+ 105 0.095 0.019 * I 195  I 105  I 105  I 105  
+ 106 0.104 0.059 * R 196  R 106  R 106  R 106  
+ 107 0.126 0.071 * V 197  V 107  V 107  V 107  
+ 108 0.193 0.071 * E 198  E 108  E 108  E 108  
+ 109 0.225 0.082 * G 199  G 109  G 109  G 109  
+ 110 0.198 0.047 * N 200  N 110  N 110  N 110  
+ 111 0.132 0.024 * L 201  L 111  L 111  L 111  
+ 112 0.174 0.082 * R 202  R 112  R 112  R 112  
+ 113 0.174 0.033 * V 203  V 113  V 113  V 113  
+ 114 0.177 0.086 * E 204  E 114  E 114  E 114  
+ 115 0.140 0.037 * Y 205  Y 115  Y 115  Y 115  
+ 116 0.144 0.063 * L 206  L 116  L 116  L 116  
+ 117 0.121 0.025 * D 207  D 117  D 117  D 117  
+ 118 0.221 0.078 * D 208  D 118  D 118  D 118  
+ 119 0.200 0.092 * R 209  R 119  R 119  R 119  
+ 120 0.394 0.105 * N 210  N 120  N 120  N 120  
+ 121 0.280 0.069 * T 211  T 121  T 121  T 121  
+ 122 0.179 0.062 * F 212  F 122  F 122  F 122  
+ 123 0.072 0.021 * R 213  R 123  R 123  R 123  
+ 124 0.149 0.072 * H 214  H 124  H 124  H 124  
+ 125 0.161 0.049 * S 215  S 125  S 125  S 125  
+ 126 0.136 0.059 * V 216  V 126  V 126  V 126  
+ 127 0.094 0.027 * V 217  V 127  V 127  V 127  
+ 128 0.121 0.021 * V 218  V 128  V 128  V 128  
+ 129 0.116 0.056 * P 219  P 129  P 129  P 129  
+ 130 0.237 0.069 * Y 220  Y 130  Y 130  Y 130  
+ 131 0.218 0.059 * E 221  E 131  E 131  E 131  
+ 132 0.204 0.056 * P 222  P 132  P 132  P 132  
+ 133 0.265 0.084 * P 223  P 133  P 133  P 133  
+ 134 0.321 0.140 * E 224  E 134  E 134  E 134  
+ 135 0.343 0.122 * V 225  V 135  V 135  V 135  
+ 136 0.346 0.080 * G 226  G 136  G 136  G 136  
+ 137 0.278 0.037 * S 227  S 137  S 137  S 137  
+ 138 0.190 0.046 * D 228  D 138  D 138  D 138  
+ 139 0.191 0.099 * C 229  C 139  C 139  C 139  
+ 140 0.097 0.030 * T 230  T 140  T 140  T 140  
+ 141 0.107 0.011 * T 231  T 141  T 141  T 141  
+ 142 0.146 0.050 * I 232  I 142  I 142  I 142  
+ 143 0.151 0.063 * H 233  H 143  H 143  H 143  
+ 144 0.146 0.051 * Y 234  Y 144  Y 144  Y 144  
+ 145 0.141 0.053 * N 235  N 145  N 145  N 145  
+ 146 0.141 0.069 * Y 236  Y 146  Y 146  Y 146  
+ 147 0.141 0.044 * M 237  M 147  M 147  M 147  
+ 148 0.195 0.059 * C 238  C 148  C 148  C 148  
+ 149 0.170 0.045 * N 239  N 149  N 149  N 149  
+ 150 0.194 0.058 * S 240  S 150  S 150  S 150  
+ 151 0.271 0.118 * S 241  S 151  S 151  S 151  
+ 152 0.307 0.081 * C 242  C 152  C 152  C 152  
+ 153 0.338 0.129 * M 243  M 153  M 153  M 153  
+ 154 0.421 0.092 * G 244  G 154  G 154  G 154  
+ 155 0.266 0.111 * G 245  G 155  G 155  G 155  
+ 156 0.133 0.048 * M 246  M 156  M 156  M 156  
+ 157 0.383 0.016 * N 247  N 157  N 157  N 157  
+ 158 0.296 0.060 * R 248  R 158  R 158  R 158  
+ 159 0.237 0.047 * R 249  R 159  R 159  R 159  
+ 160 0.092 0.036 * P 250  P 160  P 160  P 160  
+ 161 0.111 0.039 * I 251  I 161  I 161  I 161  
+ 162 0.100 0.015 * L 252  L 162  L 162  L 162  
+ 163 0.113 0.042 * T 253  T 163  T 163  T 163  
+ 164 0.111 0.076 * I 254  I 164  I 164  I 164  
+ 165 0.114 0.024 * I 255  I 165  I 165  I 165  
+ 166 0.200 0.073 * T 256  T 166  T 166  T 166  
+ 167 0.161 0.059 * L 257  L 167  L 167  L 167  
+ 168 0.253 0.128 * E 258  E 168  E 168  E 168  
+ 169 0.173 0.057 * D 259  D 169  D 169  D 169  
+ 170 0.314 0.095 * S 260  S 170  S 170  S 170  
+ 171 0.308 0.048 * S 261  S 171  S 171  S 171  
+ 172 0.580 0.291 * G 262  G 172  G 172  G 172  
+ 173 0.161 0.041 * N 263  N 173  N 173  N 173  
+ 174 0.171 0.030 * L 264  L 174  L 174  L 174  
+ 175 0.125 0.058 * L 265  L 175  L 175  L 175  
+ 176 0.218 0.149 * G 266  G 176  G 176  G 176  
+ 177 0.065 0.033 * R 267  R 177  R 177  R 177  
+ 178 0.135 0.078 * N 268  N 178  N 178  N 178  
+ 179 0.093 0.038 * S 269  S 179  S 179  S 179  
+ 180 0.079 0.024 * F 270  F 180  F 180  F 180  
+ 181 0.081 0.026 * E 271  E 181  E 181  E 181  
+ 182 0.127 0.055 * V 272  V 182  V 182  V 182  
+ 183 0.104 0.032 * R 273  R 183  R 183  R 183  
+ 184 0.114 0.054 * V 274  V 184  V 184  V 184  
+ 185 0.162 0.096 * C 275  C 185  C 185  C 185  
+ 186 0.128 0.053 * A 276  A 186  A 186  A 186  
+ 187 0.108 0.024 * C 277  C 187  C 187  C 187  
+ 188 0.168 0.050 * P 278  P 188  P 188  P 188  
+ 189 0.276 0.192 * G 279  G 189  G 189  G 189  
+ 190 0.355 0.166 * R 280  R 190  R 190  R 190  
+ 191 0.213 0.067 * D 281  D 191  D 191  D 191  
+ 192 0.166 0.034 * R 282  R 192  R 192  R 192  
+ 193 0.224 0.020 * R 283  R 193  R 193  R 193  
+ 194 0.213 0.099 * T 284  T 194  T 194  T 194  
+ 195 0.163 0.055 * E 285  E 195  E 195  E 195  
+ 196 0.191 0.082 * E 286  E 196  E 196  E 196  
+ 197 0.335 0.107 * E 287  E 197  E 197  E 197  
+ 198 0.587 0.310 * N 288  N 198  N 198  N 198  
+ 199 0.528 0.063 * L 289  L 199  L 199  L 199  
+# =============================================

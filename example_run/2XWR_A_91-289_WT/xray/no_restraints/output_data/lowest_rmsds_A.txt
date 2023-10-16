@@ -1,0 +1,2 @@
+lowest_all; lowest_medoids
+ 1.99436675249;2.61947422523
