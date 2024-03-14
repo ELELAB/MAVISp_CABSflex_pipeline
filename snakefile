@@ -1,5 +1,5 @@
 # cabsflex - A pipeline to perform CABSflex jobs
-# Copyright (C) 2021-2023 Kristine Degn, Matteo Tiberti, Elena Papaleo
+# Copyright (C) 2021-2024 Kristine Degn, Matteo Tiberti, Elena Papaleo
 # Computational Structural Biology Lab, Danish Cancer Society Research Center
 #
 # This program is free software: you can redistribute it and/or modify
@@ -19,7 +19,7 @@
 import pandas as pd
 import numpy as np
 import os
-from Bio.PDB.Polypeptide import three_to_one, one_to_three
+from Bio.SeqUtils import seq1, seq3
 import MDAnalysis as mda
 from MDAnalysis.analysis import align
 from biopandas.pdb import PandasPdb
@@ -80,8 +80,8 @@ for v in variants['source_structure'].index:
     wcs = glob_wildcards(f"{config['pdb_input_dir']}/{variants.loc[v, 'pdb_dir']}/" + "{name}_{chain}_{wt,[A-Z]{3}}{resnum,[0-9]+}{alt,[A-Z]{3}}.pdb")
     wcs_wt = glob_wildcards(f"{config['pdb_input_dir']}/{variants.loc[v, 'pdb_dir']}/" + "{name}_{chain}_WT.pdb")
 
-    wt_sl = [ three_to_one(r) for r in wcs.wt ]
-    alt_sl = [ three_to_one(r) for r in wcs.alt ]
+    wt_sl = [ seq1(r) for r in wcs.wt ]
+    alt_sl = [ seq1(r) for r in wcs.alt ]
 
     #for mutations
     targets.extend(
@@ -163,7 +163,7 @@ rule all:
 
 rule run_cabsflex:
     input:
-        lambda wcs: f"{config['pdb_input_dir']}/{variants.loc[(wcs.name, wcs.chain, int(wcs.start), int(wcs.end), wcs.source), 'pdb_dir']}/{wcs.name}_{wcs.chain}_{one_to_three(wcs.wt)}{wcs.resnum}{one_to_three(wcs.alt)}.pdb"
+        lambda wcs: f"{config['pdb_input_dir']}/{variants.loc[(wcs.name, wcs.chain, int(wcs.start), int(wcs.end), wcs.source), 'pdb_dir']}/{wcs.name}_{wcs.chain}_{seq3(wcs.wt)}{wcs.resnum}{seq3(wcs.alt)}.pdb"
     output:
         models = expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/output_pdbs/model_{n}.pdb", n=range(config['cabsflex']['k-medoids']), allow_missing=True),
         pdb = f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/input.pdb"
@@ -401,8 +401,9 @@ rule summarize_SS:
                 accuracy = lines[0].split("\t")[-1]
                 sov_99 = lines[1].split("\t")[-1]
                 sov_refine = lines[2].split("\t")[-1]
-        
-            df = df.append({"Model": model_name, "Accuracy": accuracy, "SOV_99": sov_99, "SOV_refine": sov_refine}, ignore_index=True)        
+                
+            new_row = [model_name, accuracy, sov_99, sov_refine]
+            df = pd.concat([df, pd.DataFrame([new_row], columns=df.columns)], ignore_index=True)
         df.to_csv(str(output), index=False)
 
 use rule summarize_SS as summarize_SS_wt with:
@@ -410,4 +411,3 @@ use rule summarize_SS as summarize_SS_wt with:
             expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/model_quality/model_{n}.sov", n=range(config['cabsflex']['k-medoids']), allow_missing=True)
         output:
             f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/model_quality/model_SS_summary.csv"
-

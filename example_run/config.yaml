@@ -4,12 +4,12 @@ variant_csv: "variant.csv"
 #PDB input and Output directories
 pdb_input_dir: "."
 
-out_dir: "." 
+out_dir: "."
 
 theseus_location: "/usr/local/theseus-3.3.0/theseus"
 
 cabsflex:
-   env: "source /usr/local/envs/cabsflex/bin/activate"
+   env: "source /etc/profile.d/modules.sh && module unload python && module load cabs"
    module: "module load cabs"
    k-medoids: 20
    verbose: 3
