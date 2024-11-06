@@ -1,7 +1,6 @@
 #Readme for the example run. 
 
-module load python/3.7/modulefile
-module load cabs/0.9.18/modulefile
+module load python/3.10/modulefile
 
 snakemake --cores 1
 

@@ -19,7 +19,6 @@
 import pandas as pd
 import numpy as np
 import os
-from Bio.SeqUtils import seq1, seq3
 import MDAnalysis as mda
 from MDAnalysis.analysis import align
 from biopandas.pdb import PandasPdb
@@ -76,12 +75,8 @@ variants = pd.read_csv(config['variant_csv'])
 
 targets = []
 for v in variants['source_structure'].index:
-
-    wcs = glob_wildcards(f"{config['pdb_input_dir']}/{variants.loc[v, 'pdb_dir']}/" + "{name}_{chain}_{wt,[A-Z]{3}}{resnum,[0-9]+}{alt,[A-Z]{3}}.pdb")
+    wcs = glob_wildcards(f"{config['pdb_input_dir']}/{variants.loc[v, 'pdb_dir']}/" + "{name}_{chain}_{wt,[A-Z]}{resnum,[0-9]+}{alt,[A-Z]}.pdb")
     wcs_wt = glob_wildcards(f"{config['pdb_input_dir']}/{variants.loc[v, 'pdb_dir']}/" + "{name}_{chain}_WT.pdb")
-
-    wt_sl = [ seq1(r) for r in wcs.wt ]
-    alt_sl = [ seq1(r) for r in wcs.alt ]
 
     #for mutations
     targets.extend(
@@ -96,9 +91,9 @@ for v in variants['source_structure'].index:
                  zip,
                  name=wcs.name,
                  chain=wcs.chain,
-                 wt=wt_sl,
+                 wt=wcs.wt, 
                  resnum=wcs.resnum,
-                 alt=alt_sl,
+                 alt=wcs.alt,
                  allow_missing=True),
             runtype=list(config['cabsflex']['run_types'].keys())))
     
@@ -114,9 +109,9 @@ for v in variants['source_structure'].index:
                  zip,
                  name=wcs.name,
                  chain=wcs.chain,
-                 wt=wt_sl,
+                 wt=wcs.wt,
                  resnum=wcs.resnum,
-                 alt=alt_sl,
+                 alt=wcs.alt, 
                  allow_missing=True),
             runtype=list(config['cabsflex']['run_types'].keys())))
     
@@ -132,9 +127,9 @@ for v in variants['source_structure'].index:
                  zip,
                  name=wcs_wt.name,
                  chain=wcs_wt.chain,
-                 wt=wt_sl,
+                 wt=wcs.wt, 
                  resnum=wcs.resnum,
-                 alt=alt_sl,
+                 alt=wcs.alt,
                  allow_missing=True),
             runtype=list(config['cabsflex']['run_types'].keys())))
 
@@ -149,9 +144,9 @@ for v in variants['source_structure'].index:
                  zip,
                  name=wcs_wt.name,
                  chain=wcs_wt.chain,
-                 wt=wt_sl,
+                 wt=wcs.wt, #wt_sl,
                  resnum=wcs.resnum,
-                 alt=alt_sl,
+                 alt=wcs.alt, #alt_sl,
                  allow_missing=True),
             runtype=list(config['cabsflex']['run_types'].keys())))
 
@@ -163,15 +158,10 @@ rule all:
 
 rule run_cabsflex:
     input:
-        lambda wcs: f"{config['pdb_input_dir']}/{variants.loc[(wcs.name, wcs.chain, int(wcs.start), int(wcs.end), wcs.source), 'pdb_dir']}/{wcs.name}_{wcs.chain}_{seq3(wcs.wt)}{wcs.resnum}{seq3(wcs.alt)}.pdb"
+        lambda wcs: f"{config['pdb_input_dir']}/{variants.loc[(wcs.name, wcs.chain, int(wcs.start), int(wcs.end), wcs.source), 'pdb_dir']}/{wcs.name}_{wcs.chain}_{wcs.wt}{wcs.resnum}{wcs.alt}.pdb"
     output:
         models = expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/output_pdbs/model_{n}.pdb", n=range(config['cabsflex']['k-medoids']), allow_missing=True),
         pdb = f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/input.pdb"
-        
-    wildcard_constraints:
-        wt="[A-Z]",
-        resnum="[0-9]+",
-        alt="[A-Z]"
     params:
         restraints=get_restraints,
         mc_cycles = lambda wcs: config['cabsflex']['run_types'][wcs.runtype]['mc-cycles'],
@@ -204,8 +194,8 @@ EOF
         cat <<EOF > run.sh
         
         ln -s $(basename {input}) input.pdb
-        set +u; {config[cabsflex][env]}; set -u
-
+        set +u; {config[cabsflex][cabs_env]}; set -u
+        
         CABSflex\\
             -i input.pdb\\
             -k {config[cabsflex][k-medoids]}\\
@@ -220,6 +210,8 @@ EOF
             --dssp-command {config[cabsflex][dssp_location]}\\
             {params.restraints}\\
             --log
+        
+        set +u; {config[cabsflex][python_env]}; set -u
 EOF
 
         bash run.sh  
@@ -388,8 +380,7 @@ rule summarize_SS:
     output: 
         f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_{wt}{resnum}{alt}/{source}/{runtype}/model_quality/model_SS_summary.csv" 
     run: 
-        df = pd.DataFrame(columns=["Model", "Accuracy", "SOV_99", "SOV_refine"])
-
+        rows = []
         for file in input:
             file = str(file)
             model_name = file.split("/")[-1].split(".")[0]
@@ -397,17 +388,21 @@ rule summarize_SS:
             with open(file, "r") as f:
                 lines = f.readlines()
                 lines = [line.rstrip() for line in lines]
-                lines = lines[-3:]
+                lines = lines[-3:] 
                 accuracy = lines[0].split("\t")[-1]
                 sov_99 = lines[1].split("\t")[-1]
                 sov_refine = lines[2].split("\t")[-1]
-                
-            new_row = [model_name, accuracy, sov_99, sov_refine]
-            df = pd.concat([df, pd.DataFrame([new_row], columns=df.columns)], ignore_index=True)
+        
+            rows.append({"Model": model_name, "Accuracy": accuracy, "SOV_99": sov_99, "SOV_refine": sov_refine})
+        
+        # Create a DataFrame from the list of rows
+        df = pd.DataFrame(rows, columns=["Model", "Accuracy", "SOV_99", "SOV_refine"])
         df.to_csv(str(output), index=False)
+
 
 use rule summarize_SS as summarize_SS_wt with:
         input:
             expand(f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/model_quality/model_{n}.sov", n=range(config['cabsflex']['k-medoids']), allow_missing=True)
         output:
             f"{config['out_dir']}/" + "{name}_{chain}_{start}-{end}_WT/{source}/{runtype}/model_quality/model_SS_summary.csv"
+
