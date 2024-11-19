@@ -1,0 +1,20 @@
+N_L	199
+N_S	7
+Lambda	1
+SOV_99_i	C	0.785
+SOV_refine_i	C	0.834
+SOV_99_i	S	0.474
+SOV_refine_i	S	0.544
+SOV_99_i	B	1.000
+SOV_refine_i	B	1.000
+SOV_99_i	T	0.250
+SOV_refine_i	T	0.250
+SOV_99_i	E	0.889
+SOV_refine_i	E	0.915
+SOV_99_i	G	0.000
+SOV_refine_i	G	0.000
+SOV_99_i	H	0.667
+SOV_refine_i	H	0.667
+Accuracy	0.648
+SOV_99	0.672
+SOV_refine	0.703
