@@ -41,7 +41,7 @@ The user will also need to provide:
 
 so for instance:
 
-`2XWR_A_ALA129ASP.pdb`
+`2XWR_A_A129N.pdb`
 
 the corresponding wild-type structure is also identified and used as:
 
@@ -57,8 +57,7 @@ and must be specified in the configuration file (see below).
 
 1. Clone this repository where you would like to run to the pipeline:
 
-`git clone https://github.com/ELELAB/cabs_production.git`
-`cd cabs_production/cabsflex`
+`git clone https://github.com/ELELAB/MAVISp_CABSflex_pipeline.git`
 
 2. Edit the config.yaml and variants.csv files appropriately for your system.
 
@@ -119,7 +118,8 @@ The following options and parameters must be set within the configuration file:
 
 |CABS-flex options|Meaning|
 |---|---|
-|`env`|This is the command used to set up the environment right before running CABSflex, so that the CABSflex executable is available. Most of the times, this will be activating a virtual environment (see example)|
+|`cabs_env`|This is the command used to set up the CABS environment right before running CABSflex, so that the CABSflex executable is available. This will be activating a virtual environment|
+|`python_env`|This is the command used to set up the python environment.
 |`k-medoids`|Number of medoids in k-medoids clustering algorithm|
 |`dssp_location`|Path for the DSSP program|
 |`verbose`|Controls how explicit the program output is. It ranges from 0 (only critical messages) to 4 (maximum verbosity)|
